@@ -1,0 +1,72 @@
+@media (max-width: 850px) {
+    .footer__container {
+        justify-content: space-evenly;
+    }
+    .common-section {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .tabs__nav {
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .tabs__nav button {
+        width: 60%;
+        display: block;
+        padding: 10px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .services .card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 12px;
+    }
+    .header__nav li+li {
+        margin-left: 10px;
+    }
+    .welcome {
+        height: 60vh;
+    }
+    .welcome__heading {
+        margin-bottom: 50px;
+        font-size: 40px;
+    }
+    .welcome__links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .welcome__links a {
+        width: 80%;
+    }
+    .common-section {
+        padding: 20px 0;
+    }
+    .advantages .card h4 {
+        font-size: 16px;
+    }
+    .services .card h4 {
+        font-size: 16px;
+    }
+    .services .card .link {
+        font-size: 14px;
+    }
+    .footer__desc h4 {
+        margin-bottom: 15px;
+    }
+}

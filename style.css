@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Palanquin+Dark:wght@400;500;600;700&display=swap');
+
+/* Main styles */
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 970px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+p {
+    color: #6A859C;
+    line-height: 1.79;
+}
+
+.common-section {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.title-wrapper {
+    margin-bottom: 60px;
+}
+
+.title {
+    color: #676770;
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 5px;
+    margin-bottom: 14px;
+}
+
+.subtitle {
+    color: #8E8E9C;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: 3px;
+}
+
+.common-section--dark {
+    background-color: #192024;
+}
+
+.common-section--dark * {
+    color: #fff;
+}
+
+.common-section--dark .subtitle {
+    color: #E8E8E8;
+}
+
+/* --------------- Header --------------- */
+.header {
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222222;
+    z-index: 100;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: "Palanquin Dark", sans-serif;
+    width: 144px;
+    color: #FFF;
+    font-size: 25px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.header__nav ul {
+    display: flex;
+
+}
+
+.header__nav li+li {
+    margin-left: 40px;
+}
+
+.header__nav a {
+    color: #FFF;
+    font-size: 16px;
+    line-height: 20px;
+    transition: color 0.5s;
+}
+
+.header__nav a:hover {
+    color: #0082F3;
+}
+
+.header__nav a:active {
+    color: #004887;
+}
+
+/* --------------- Main --------------- */
+
+/* --------------- Welcome --------------- */
+
+.welcome {
+    font-family: "Oswald", sans-serif;
+    min-height: 600px;
+    height: 80vh;
+    padding: 195px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: #fff;
+    background-color: #222430;
+    background-image: url("./img/main-img.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome__heading {
+    font-size: 35px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 100px;
+}
+
+.welcome__links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.link-primary {
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: #69B9FF;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    border: 1px #69B9FF solid;
+    padding: 11px 31px;
+    transition: all 0.5s;
+}
+
+.link-primary:hover {
+    background-color: #BCE0FF;
+    color: grey;
+}
+
+
+.link-primary:active {
+    background-color: #006BC8;
+    color: #FFF;
+}
+
+.link {
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    border: 1px white solid;
+    padding: 11px 31px;
+    transition: all 0.5s;
+}
+
+.link:hover {
+    background-color: rgb(255, 255, 255, 0.2);
+    border-color: rgb(255, 255, 255, 0.5);
+}
+
+.link:active {
+    background-color: rgb(0, 0, 0, 0.2);
+    border-color: rgb(0, 0, 0, 0.5);
+}
+
+/* --------------- Advantages --------------- */
+
+.advantages .card {
+    width: auto;
+    max-width: 300px;
+    padding: 35px 15px 25px;
+    border: 1px solid #DCEBF7;
+    border-radius: 5px;
+}
+
+.advantages .card img {
+    margin-bottom: 20px;
+    width: 94px;
+    height: 94px;
+    object-fit: contain;
+}
+
+.advantages .card h4 {
+    margin-bottom: 15px;
+    color: #676770;
+    font-size: 20px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+}
+
+/* --------------- Services --------------- */
+
+.services .cards-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.cards-wrapper h4 {
+    position: relative;
+}
+
+.cards-wrapper h4 {
+    display: inline-block;
+    margin-right: auto;
+}
+
+.cards-wrapper img {
+    width: 100%;
+}
+
+.cards-wrapper h4::before {
+    position: absolute;
+    right: -23px;
+    top: 9px;
+    content: '';
+    background-image: url('./img/sercives/triangle.svg');
+    display: block;
+    width: 16px; 
+    height: 12px;
+    background-size: cover;
+    object-fit: fill;
+}
+
+.services .card {
+    width: 100%;
+}
+
+.services .card img {
+    margin-bottom: 20px;
+}
+
+.services .card h4 {
+    margin-bottom: 23px;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    letter-spacing: 7px;
+}
+
+.services .link {
+    margin-top: 15px;
+}
+
+/* --------------- Tab-section --------------- */
+
+.tabs__nav {
+    display: flex;
+    justify-content: center;
+    column-gap: 16px;
+    margin-bottom: 50px;
+
+}
+
+.tabs__nav button {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFF;
+    background: #92A0AD;
+    border-radius: 4px;
+    padding: 1px 30px;
+}
+
+.tabs__nav button.active {
+    background-color: #2E80B6;
+}
+
+.tabs__item img {
+    margin-bottom: 15px;
+}
+
+.tabs__item h4 {
+    margin-bottom: 15px;
+    color: #676770;
+    font-size: 31px;
+    line-height: 36px;
+}
+
+.tabs__desc {
+    margin: 0 auto;
+    max-width: 720px;
+    font-size: 13px;
+}
+
+/* --------------- Footer --------------- */
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px 40px;
+}
+
+.footer__container > * {
+    width: 30%;
+    min-width: 220px;
+
+}
+
+.footer__desc {
+    padding: 35px 0;
+}
+
+.footer__desc h4 {
+    margin-bottom: 25px;
+    color: #676770;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 4px;
+}
+
+.footer a {
+    color: #668CAD;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.footer li {
+    position: relative;
+    height: 30px;
+}
+
+.footer li::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #D5D5E0;
+    height: 1px;
+    width: 100%;
+}
+
+.footer__desc li + li {
+    margin-top: 6px;
+}
+
+.footer__social img {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+}
+
+.footer__social li::after {
+    width: calc(100% - 35px);
+} 
+
+.footer__copy {
+    background-color: #383838;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer__copy p {
+    color: #9E9E9E;
+}
