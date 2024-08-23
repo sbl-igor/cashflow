@@ -1,72 +1,76 @@
-@media (max-width: 850px) {
-    .footer__container {
-        justify-content: space-evenly;
+@media (max-width: 900px) {
+    .subtitle {
+        font-size: 12px;
     }
+}
+
+@media (max-width: 800px) {
     .common-section {
-        padding: 40px 0;
+        padding: 80px 0;
     }
-}
-
-@media (max-width: 700px) {
-    .tabs__nav {
-        margin-bottom: 25px;
-        flex-wrap: wrap;
+    .advantages .container {
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .tabs__nav button {
-        width: 60%;
-        display: block;
-        padding: 10px 30px;
-    }
-}
-
-@media (max-width: 600px) {
-    .services .cards-wrapper {
-        flex-direction: column;
-        align-items: center;
         gap: 40px;
     }
-    .services .card {
-        width: 80%;
+    .advantages .title-wrapper {
+        align-self: center;
+        text-align: center;
+    } 
+    .title-wrapper {
+        max-width: 100%;
+    }
+    .services .container {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    .services .title-wrapper {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .header__nav .course, .header__nav .contacthref {
+        display: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .welcome__heading {
+        font-size: 28px;
+    }
+    .footer__social ul {
+        flex-wrap: wrap;
+    }
+    .footer__desc {
+        padding: 30px 0;
     }
 }
 
 @media (max-width: 400px) {
-    body {
+    .header__nav a {
         font-size: 12px;
     }
-    .header__nav li+li {
-        margin-left: 10px;
-    }
-    .welcome {
-        height: 60vh;
-    }
     .welcome__heading {
-        margin-bottom: 50px;
-        font-size: 40px;
-    }
-    .welcome__links {
-        flex-direction: column;
-        align-items: center;
+        font-size: 22px;
     }
     .welcome__links a {
-        width: 80%;
+        max-width: 300px;
     }
     .common-section {
-        padding: 20px 0;
+        padding: 50px 0;
     }
-    .advantages .card h4 {
-        font-size: 16px;
+    .title {
+        font-size: 28px;
     }
-    .services .card h4 {
-        font-size: 16px;
+    .subtitle {
+        text-align: justify;
     }
-    .services .card .link {
-        font-size: 14px;
+    .rates-list {
+        font-size: 12px;
     }
-    .footer__desc h4 {
-        margin-bottom: 15px;
+    .footer__copy {
+        padding: 15px 0;
+        font-size: 12px;
     }
 }

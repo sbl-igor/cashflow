@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./media.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -16,8 +17,9 @@
 
             <nav class="header__nav">
                 <ul>
-                    <li><a href="#!">Узнать курс</a></li>
-                    <li><a href="#!">Контакты</a></li>
+                    <li class="course"><a href="#currency-rates">Узнать курс</a></li>
+                    <li class="contacthref"><a href="#footer__social">Контакты</a></li>
+                    <li><button class="language-btn"><a href="#!">Сменить язык?</a></button></li>
                 </ul>
             </nav>
         </div>
@@ -27,42 +29,45 @@
 
         <section class="welcome">
             <div class="container">
-                <h2 class="welcome__heading">Мы предлагаем безопасные и выгодные условия для обмена валют</h2>
-
-                <div class="welcome__links">
-                    <a href="#!" class="link-primary">Обменники</a>
-                    <a href="#!" class="link">Статистика</a>
+                <h2 data-aos="fade-up" class="welcome__heading">Мы предлагаем безопасные и выгодные условия для обмена валют</h2>
+                <div data-aos="fade-up" class="welcome__links">
+                    <a href="#footer__social" class="link-primary">Связаться с менеджером</a>
+                    <a href="#currency-rates" class="link">Узнать курс</a>
                 </div>
             </div>
         </section>
 
         <section class="advantages common-section">
             <div class="container">
-                <div class="title-wrapper">
-                    <h3 class="title">Обменники</h3>
-                    <p class="subtitle">Cashflow — это надежный каталог проверенных обменных пунктов, где вы можете безопасно приобретать криптовалюту, фиатные деньги и электронные валюты</p>
+                <div data-aos="fade-right" class="title-wrapper">
+                    <h3 class="title">О нас</h3>
+                    <p class="subtitle">Наш обменник предоставляет быстрые, безопасные и выгодные услуги по обмену криптовалюты, фиатных и электронных валют. Мы понимаем важность прозрачности и надежности в финансовых операциях, поэтому предлагаем только проверенные и конкурентоспособные курсы обмена.
+                    </p>
                 </div>
-                <div class="cards-wrapper">
-                    <img src="./img/table.png" alt="table">
+                <div data-aos="fade-left" class="cards-wrapper">
+                    <img src="./img/back-icon.png" alt="cryptho">
                 </div>
             </div>
         </section>
 
-        <section class="services common-section common-section--dark">
+        <section id="currency-rates" class="services common-section">
             <div class="container">
-                <div class="title-wrapper">
-                    <h3 class="title">Статистика</h3>
-                    <p class="subtitle">подробная информация о текущих курсах обмена валют, динамике криптовалют и электронных денег</p>
+                <div data-aos="fade-right" class="currency-rates">
+                    <h4 class="rates-title">💰 Курс валют 12/08/2024:</h4>
+                    <ul class="rates-list">
+                        <li><strong>💲 USD/ARS:</strong> любая сумма - 1300 песо ⚡️</li>
+                        <li><strong>💲 USDT/ARS:</strong> до 500 - 1290 песо<br>от 500 - 1295 песо ⚡️</li>
+                        <li><strong>🇷🇺 RUB/ARS:</strong> 10.000 рублей - 136.000 песо ⚡️</li>
+                        <li><strong>🇷🇺 RUB/USD:</strong> 97 рублей - 1 usd </li>
+                        <li><strong>💲 EUR/ARS:</strong> 1352 песо </li>
+                        <li><strong>🇰🇿 KZT/ARS:</strong> 63.300 тенге - 164.580 песо ⚡️</li>
+                        <li><strong>💵 USDT/USD:</strong> 3 % </li>
+                    </ul>
                 </div>
-                <div class="cards-wrapper">
-                    <div class="card">
-                        <img src="./img/sercives/diagram.png" alt="img">
-                        <h4>Диаграмма</h4>
-                        <p>На панели слева выберите имеющуюся у вас валюту и валюту, на которую вы хотите ее купить/обменять;
-                            В центре страницы будет показан список надежных и проверенных обменников, которые работают с данным направлением обмена. По умолчанию обменники с лучшими курсами находятся вверху списка;
-                            Вы можете воспользоваться функцией калькулятора, чтобы проверить точную сумму, которую вы получите после конвертации;
-                            Выберите подходящий вам обменник, нажмите на него, чтобы перейти на его сайт и следуйте инструкциям по совершению обмена.</p>
-                    </div>
+                <div data-aos="fade-left" class="title-wrapper">
+                    <h3 class="title">Узнать курс</h3>
+                    <p class="subtitle">Наш обменник предоставляет актуальные курсы валют в режиме реального времени. Вы всегда будете в курсе самых выгодных предложений благодаря мгновенному обновлению информации. Узнайте текущий курс криптовалют, фиатных и электронных валют за несколько секунд и примите решение о выгодной сделке. Мы гарантируем прозрачность и точность данных, чтобы вы могли уверенно совершать обменные операции.
+                    </p>
                 </div>
             </div>
         </section>
@@ -70,37 +75,24 @@
         <footer class="footer">
             <div class="footer__desc">
                 <div class="container footer__container">
-                    <div class="footer__about">
-                        <h4>О нас</h4>
-                        <p>Наш обменник предоставляет быстрые, безопасные и выгодные услуги по обмену криптовалюты, фиатных и электронных валют. Мы понимаем важность прозрачности и надежности в финансовых операциях, поэтому предлагаем только проверенные и конкурентоспособные курсы обмена.</p>
-                    </div>
-                    <div class="footer__links">
-                        <h4>Полезные ссылки</h4>
-                        <ul>
-                            <li><a href="#!">Как начать обмен валют?</a></li>
-                            <li><a href="#!">Часто задаваемые вопросы (FAQ)</a></li>
-                            <li><a href="#!">Руководство по безопасности</a></li>
-                            <li><a href="#!">Блог</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__social">
+                    <div id="footer__social" class="footer__social">
                         <h4>Контакты</h4>
                         <ul>
-                            <li>
-                                <img src="./img/icons-social/twitter.svg" alt="twitter">
-                                <a href="#!">Twitter</a>
+                            <li data-aos="fade-up"
+                            data-aos-delay="200">
+                                <a href="https://web.telegram.org/a/"><img src="./img/icons-social/icons8-telegram-app.svg" alt="Telegram"></a>
+                                <a href="https://web.telegram.org/a/">Telegram</a>
                             </li>
-                            <li>
-                                <img src="./img/icons-social/fb.svg" alt="fb">
-                                <a href="#!">Facebook</a>
+                            <li data-aos="fade-up"
+                            data-aos-delay="400">
+                                <a href="https://www.viber.com/ru/"><img src="./img/icons-social/icons8-viber.svg" alt="Viber"></a>
+                                <a href="https://www.viber.com/ru/">Viber</a>
                             </li>
-                            <li>
-                                <img src="./img/icons-social/telegram.png" alt="telegram">
-                                <a href="#!">Telegram</a>
-                            </li>
-                            <li>
-                                <img src="./img/icons-social/google.svg" alt="google">
-                                <a href="#!">Google</a>
+                            <li data-aos="fade-up"
+                            data-aos-delay="600">
+                                <!-- <img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"> -->
+                                <a href="https://www.viber.com/ru/"><img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"></a>
+                                <a href="https://www.viber.com/ru/">Whatsapp</a>
                             </li>
                         </ul>
                     </div>
@@ -115,6 +107,17 @@
         </footer>
 
     </main>
-
+    <div id="language-popup" class="language-popup">
+        <div class="popup-content">
+            <h3>Выберите язык</h3>
+            <button class="lang-btn" data-lang="ru">Русский</button>
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="es">Español</button>
+            <button class="close-popup"><img src="./img/icons-social/cross.svg" alt="cross"></button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./index.js"></script>
+    <script src="./href.js"></script>
 </body>
 </html>
