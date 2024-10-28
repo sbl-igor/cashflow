@@ -19,7 +19,9 @@
                 <ul>
                     <li class="course"><a href="#currency-rates">Узнать курс</a></li>
                     <li class="contacthref"><a href="#footer__social">Контакты</a></li>
-                    <li><button class="language-btn"><a href="#!">Сменить язык?</a></button></li>
+                    <li><button class="language-btn"><a href="#">
+                        <img src="./img/icons-idiomas/ru.png" alt="ru">
+                    </a></button></li>
                 </ul>
             </nav>
         </div>
@@ -53,16 +55,23 @@
         <section id="currency-rates" class="services common-section">
             <div class="container">
                 <div data-aos="fade-right" class="currency-rates">
-                    <h4 class="rates-title">💰 Курс валют 12/08/2024:</h4>
-                    <ul class="rates-list">
-                        <li><strong>💲 USD/ARS:</strong> любая сумма - 1300 песо ⚡️</li>
-                        <li><strong>💲 USDT/ARS:</strong> до 500 - 1290 песо<br>от 500 - 1295 песо ⚡️</li>
-                        <li><strong>🇷🇺 RUB/ARS:</strong> 10.000 рублей - 136.000 песо ⚡️</li>
-                        <li><strong>🇷🇺 RUB/USD:</strong> 97 рублей - 1 usd </li>
-                        <li><strong>💲 EUR/ARS:</strong> 1352 песо </li>
-                        <li><strong>🇰🇿 KZT/ARS:</strong> 63.300 тенге - 164.580 песо ⚡️</li>
-                        <li><strong>💵 USDT/USD:</strong> 3 % </li>
-                    </ul>
+                    <h4 class="rates-title">💰 Курс валют <span></span>:</h4>
+                    <ul class="rates-list" id="data">
+                        <li class="usd-ars"><strong>💲 USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо ⚡️</li>
+                        <li class="usdt-ars"><strong>💲 USDT/ARS:</strong> до 500 - <span id="usdt-ars-value-1"></span> песо<br>от 500 - <span id="usdt-ars-value-2"></span> песо ⚡️</li>
+                        <li class="rub-ars"><strong>🇷🇺 RUB/ARS:</strong> 10.000 рублей - <span id="rub-ars-value"></span> песо ⚡️</li>
+                        <li class="rub-usd"><strong>🇷🇺 RUB/USD:</strong> <span id="rub-usd-value"></span> рублей - 1 usd </li>
+                        <li class="eur-ars"><strong>💲 EUR/ARS:</strong> <span id="eur-ars-value"></span> песо </li>
+                        <li class="kzt-ars"><strong>🇰🇿 KZT/ARS:</strong> 63.300 тенге - <span id="kzt-ars-value"></span> песо ⚡️</li>
+                        <li class="usdt-usd"><strong>💵 USDT/USD:</strong> <span id="usdt-usd-value"></span> % </li>
+                        <li class="ex-rates">💸 Обмен с грузинских/турецких<br>и др. счетов - пишите менеджеру</li>
+                        <ul class="dop-info-rate">
+                            <li>🚚 Доставка от 500 USD по городу - бесплатно</li>
+                            <li>🕖 График работы: с 8:00 до 20:00, доставка до 19:00</li>                                                                                                                                   
+                            <li>😉 Для обмена пишите: <a id="svetlanacashflow" href="https://t.me/svetlanacashflow">@svetlanacashflow</a></li>                                                                                                                                        
+                            <li>🤖 Бот для заявок: <a id="CashflowArgExchange_bot" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a></li>
+                        </ul>
+                    </ul>                    
                 </div>
                 <div data-aos="fade-left" class="title-wrapper">
                     <h3 class="title">Узнать курс</h3>
@@ -80,19 +89,19 @@
                         <ul>
                             <li data-aos="fade-up"
                             data-aos-delay="200">
-                                <a href="https://web.telegram.org/a/"><img src="./img/icons-social/icons8-telegram-app.svg" alt="Telegram"></a>
-                                <a href="https://web.telegram.org/a/">Telegram</a>
+                                <a href="https://t.me/svetlanacashflow"><img src="./img/icons-social/icons8-telegram-app.svg" alt="Telegram"></a>
+                                <a href="https://t.me/svetlanacashflow">Telegram</a>
                             </li>
                             <li data-aos="fade-up"
                             data-aos-delay="400">
-                                <a href="https://www.viber.com/ru/"><img src="./img/icons-social/icons8-viber.svg" alt="Viber"></a>
-                                <a href="https://www.viber.com/ru/">Viber</a>
+                                <a href="https://msng.link/o/?5491137823353=vi"><img src="./img/icons-social/icons8-viber.svg" alt="Viber"></a>
+                                <a href="https://msng.link/o/?5491137823353=vi">Viber</a>
                             </li>
                             <li data-aos="fade-up"
                             data-aos-delay="600">
                                 <!-- <img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"> -->
-                                <a href="https://www.viber.com/ru/"><img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"></a>
-                                <a href="https://www.viber.com/ru/">Whatsapp</a>
+                                <a href="https://wa.me/5491137823353"><img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"></a>
+                                <a href="https://wa.me/5491137823353">Whatsapp</a>
                             </li>
                         </ul>
                     </div>
@@ -101,7 +110,7 @@
 
             <div class="footer__copy">
                 <div class="container">
-                    <p>По другим вопросам пишите на нашу почту - ***”@gmail.com</p>
+                    <p>Бот для заявок: <a id="CashflowArgExchange_botFooter" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a></p>
                 </div>
             </div>
         </footer>
@@ -117,7 +126,8 @@
         </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./index.js"></script>
     <script src="./href.js"></script>
+    <script src="./googletable.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

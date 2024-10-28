@@ -26,6 +26,7 @@
     .services .title-wrapper {
         max-width: 100%;
         text-align: center;
+        margin-left: 0;
     }
 }
 
@@ -38,6 +39,9 @@
 @media (max-width: 575px) {
     .welcome__heading {
         font-size: 28px;
+    }
+    .services .currency-rates .rates-list li {
+        white-space: normal;
     }
     .footer__social ul {
         flex-wrap: wrap;

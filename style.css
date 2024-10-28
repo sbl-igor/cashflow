@@ -5,6 +5,7 @@ body {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -46,6 +47,14 @@ p {
 
 .common-section--dark {
     background-color: #192024;
+}
+
+#svetlanacashflow, #CashflowArgExchange_bot {
+    color: #99c7ef;
+}
+
+#CashflowArgExchange_botFooter {
+    
 }
 
 /* --------------- Pop-up --------------- */
@@ -171,6 +180,11 @@ p {
     border: 2px solid #FFF;
     border-radius: 7px;
     transition: all 0.5s;
+}
+
+.language-btn img {
+    width: 30px;
+    height: 30px;
 }
 
 .header__nav .language-btn a:hover {
@@ -329,6 +343,12 @@ p {
 .services .title-wrapper {
     max-width: 50%;
     text-align: right;
+    margin-left: 20px;
+}
+
+.rates-list span {
+    color: #fb998f;
+    font-weight: bold;
 }
 
 .services .currency-rates {
@@ -357,6 +377,14 @@ p {
 
 .services .currency-rates .rates-list li:last-child {
     margin-bottom: 0;
+}
+
+.dop-info-rate {
+    margin-top: 30px;
+}
+
+.dop-info-rate li {
+    white-space: normal;
 }
 
 /* --------------- Tab-section --------------- */
@@ -429,8 +457,8 @@ footer {
 }
 
 .footer a {
-    color: #9E9E9E;
-    font-size: 20px;
+    color: #696868;
+    /* font-size: 20px; */
     line-height: 20px;
 }
 
