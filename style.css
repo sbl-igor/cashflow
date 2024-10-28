@@ -290,6 +290,7 @@ p {
 
 .advantages {
     background-color: #171717;
+    overflow-x: hidden;
 }
 
 .advantages .container {
@@ -332,6 +333,7 @@ p {
 
 .services {
     background-color: #171717;
+    overflow-x: hidden;
 }
 
 .services .container {
