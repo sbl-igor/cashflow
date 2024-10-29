@@ -389,6 +389,27 @@ p {
     white-space: normal;
 }
 
+.rates-list .usd-ars,
+.rates-list .usdt-ars,
+.rates-list .eur-ars,
+.rates-list .usdt-usd {
+    font-weight: bold;
+    color: #ff4500;
+    background-color: #f7e4d5;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.rates-list .usd-ars:hover,
+.rates-list .usdt-ars:hover,
+.rates-list .eur-ars:hover,
+.rates-list .usdt-usd:hover {
+    background-color: #ffdfa6;
+    transition: background-color 0.3s ease;
+}
+
 /* --------------- Tab-section --------------- */
 
 .tabs__nav {
