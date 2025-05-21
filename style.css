@@ -53,11 +53,6 @@ p {
     color: #99c7ef;
 }
 
-#map {
-    height: 500px;
-    width: 200px;
-}
-
 /* --------------- Pop-up --------------- */
 
 .language-popup {
@@ -440,6 +435,22 @@ p {
     transition: background-color 0.3s ease;
 }
 
+/* MAP */
+
+.map {
+    background-color: #171717;
+    overflow-x: hidden;
+}
+
+.map .title, .map .subtitle {
+    text-align: left;
+}
+
+.map .title-wrapper {
+    max-width: 100%;
+    margin-bottom: 35px;
+}
+
 /* --------------- Tab-section --------------- */
 
 .tabs__nav {
@@ -533,11 +544,16 @@ footer {
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-.footer__social ul li:hover {
-    transform: scale(1.05);
+.footer__social ul li a img {
+    transition: all 0.3s ease-in-out;
+}
+
+.footer__social ul li:hover a img {
+    filter: brightness(1.1) drop-shadow(0 0 5px rgba(0, 255, 100, 0.6));
+    transform: translateY(-10px)
 }
 
 .footer__social img {
