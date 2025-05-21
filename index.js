@@ -169,4 +169,5 @@ document.addEventListener('DOMContentLoaded', function() {
             loadGoogleSheetData();            
         }
     }
+    changeLanguage('en');
 });

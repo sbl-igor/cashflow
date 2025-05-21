@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    max-width: 970px;
+    max-width: 1170px;
     padding: 0 15px;
     margin: 0 auto;
 }
@@ -53,8 +53,9 @@ p {
     color: #99c7ef;
 }
 
-#CashflowArgExchange_botFooter {
-    
+#map {
+    height: 500px;
+    width: 200px;
 }
 
 /* --------------- Pop-up --------------- */
@@ -290,7 +291,6 @@ p {
 
 .advantages {
     background-color: #171717;
-    overflow-x: hidden;
 }
 
 .advantages .container {
@@ -329,11 +329,41 @@ p {
     max-height: 40%;
 }
 
+#cards-wrapper-hand {
+    opacity: 0.9;
+}
+
 /* --------------- Services --------------- */
 
 .services {
     background-color: #171717;
     overflow-x: hidden;
+    background-image: url('./img/background-pinturas.png');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.services::before,
+.services::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 70px; /* высота градиента */
+    z-index: 2;      
+}
+
+.services::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(23, 23, 23, 1), rgba(23, 23, 23, 0));
+}
+
+.services::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(23, 23, 23, 1), rgba(23, 23, 23, 0));
 }
 
 .services .container {
