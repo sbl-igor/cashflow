@@ -50,7 +50,8 @@ p {
 }
 
 #svetlanacashflow, #CashflowArgExchange_bot {
-    color: #99c7ef;
+    color: #8c8b8b;
+    margin-left: 5px;
 }
 
 /* --------------- Pop-up --------------- */
@@ -93,8 +94,8 @@ p {
 }
 
 .popup-content .close-popup {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     margin-top: 20px;
     cursor: pointer;
 }
@@ -188,11 +189,11 @@ p {
 }
 
 .header__nav .language-btn:hover {
-    background-color: #0082F3;
+    background-color: #71fe5f;
 }
 
 .header__nav .language-btn:active {
-    background-color: #004887;
+    background-color: #4fc83f;
 }
 
 /* --------------- Main --------------- */
@@ -203,7 +204,7 @@ p {
     font-family: "Oswald", sans-serif;
     min-height: 600px;
     height: 100vh;
-    padding: 195px 0;
+    padding: 277px 0 195px;
 
     display: flex;
     justify-content: center;
@@ -222,7 +223,7 @@ p {
     line-height: 1.8;
     text-transform: uppercase;
     letter-spacing: 4px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 
 .welcome__links {
@@ -233,37 +234,37 @@ p {
 }
 
 .welcome__links a {
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
 }
 
 .link-primary {
     display: inline-block;
-    font-size: 16px;
+    font-size: 22px;
     text-transform: uppercase;
-    background-color: #69B9FF;
+    background-color: #49cf52;
     letter-spacing: 2px;
     border-radius: 4px;
-    border: 1px #69B9FF solid;
+    border: 1px #44a113 solid;
     padding: 11px 31px;
     transition: all 0.5s;
 }
 
 .link-primary:hover {
-    background-color: #BCE0FF;
+    background-color: #87f7e2;
     color: grey;
 }
 
 
 .link-primary:active {
-    background-color: #006BC8;
+    background-color: #357c0f;
     color: #FFF;
 }
 
 .link {
     display: inline-block;
     color: white;
-    font-size: 16px;
+    font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 2px;
     border-radius: 4px;
@@ -325,7 +326,7 @@ p {
 }
 
 #cards-wrapper-hand {
-    opacity: 0.9;
+    filter: brightness(0.9);
 }
 
 /* --------------- Services --------------- */
@@ -363,32 +364,35 @@ p {
 
 .services .container {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: space-between;
     align-items: center;
 }
 
 .services .title-wrapper {
-    max-width: 50%;
-    text-align: right;
+    max-width: 100%;
+    text-align: center;
     margin-left: 20px;
+    margin-bottom: 40px;
 }
 
 .rates-list span {
-    color: #fb998f;
+    color: #4fc83f;
     font-weight: bold;
 }
 
 .services .currency-rates {
+    width: 80%;
     flex: 0.8;
-    background-color: #333;
-    padding: 20px;
+    /* background-color: #333; */
+    padding: 25px;
     border-radius: 8px;
     color: #fff;
 }
 
 .services .currency-rates .rates-title {
-    font-size: 19px;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 35px;
     font-weight: bold;
 }
 
@@ -397,33 +401,77 @@ p {
     padding: 0;
 }
 
-.services .currency-rates .rates-list li {
+.services .currency-rates .rates-list li.course {
     white-space: nowrap;
-    margin-bottom: 10px;
+    /* margin-bottom: 30px; */
+    padding: 20px 0;
+    border-bottom: 1px solid #c9c8c8;
+    font-size: 22px;
 }
 
 .services .currency-rates .rates-list li:last-child {
     margin-bottom: 0;
 }
 
-.dop-info-rate {
-    margin-top: 30px;
+.dop-info-rate li {
+    margin-top: 40px;
+    white-space: nowrap;
 }
 
 .dop-info-rate li {
     white-space: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
+.icon-smile {
+    width: 48px;
+    height: 48px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.dop-info-rate li:hover .icon-smile {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
+
+.ex-rates {
+    margin-top: 40px;
+}
+
+.ex-rates, .dop-info-rate {
+    font-size: 20px;
+}
+
+.dop-info-rate {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #c9c8c8;
+}
+
+#svetlanacashflow, #
 
 .rates-list .usd-ars,
 .rates-list .usdt-ars,
 .rates-list .eur-ars,
 .rates-list .usdt-usd {
-    font-weight: bold;
-    color: #ff4500;
-    background-color: #f7e4d5;
-    padding: 8px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    /* font-weight: bold; */
+    /* color: #ff4500; */
+    /* background-color: #f7e4d5; */
+    /* padding: 8px; */
+    /* margin-bottom: 5px; */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -433,6 +481,69 @@ p {
 .rates-list .usdt-usd:hover {
     background-color: #ffdfa6;
     transition: background-color 0.3s ease;
+}
+
+/* pickup */
+
+.pickup {
+    background-color: #171717;
+}
+
+.pickup .title-wrapper {
+    max-width: 100%;
+}
+
+.pickup-img {
+    max-width: 500px;
+    filter: brightness(0.6) drop-shadow(0 0 10px rgba(0, 255, 100, 0.6));
+    transition: all 0.3s ease;  
+}
+
+.pickup-instruction {
+    display: flex;
+    flex-direction: column;
+    padding: 85px 0 0;
+    color: #c9c8c8;
+    gap: 30px;
+}
+
+.pickup-instruction__item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}
+
+.pickup-instruction__item:hover .pickup-img {
+    filter: brightness(0.8) drop-shadow(0 0 10px rgba(0, 255, 100, 0.3));
+    transform: scale(1.05);
+}
+
+.pickup-instruction__item:nth-child(2n) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.pickup-instruction__item:nth-child(2n+1) .pickup-instruction__item-title {
+    text-align: left;
+}
+
+.pickup-instruction__item-title {
+    color: #c9c8c8;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;  
+}
+
+.pickup-instruction__item:hover .pickup-instruction__item-title {
+    transform: scale(1.05);
+}
+
+.pickup-instruction__item-subtitle {
+    color: #FFF;
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 
 /* MAP */
@@ -449,6 +560,10 @@ p {
 .map .title-wrapper {
     max-width: 100%;
     margin-bottom: 35px;
+}
+
+.map-frame {
+    filter: brightness(0.7)
 }
 
 /* --------------- Tab-section --------------- */
@@ -545,6 +660,8 @@ footer {
     justify-content: center;
     gap: 20px;
     transition: all 0.3s ease-in-out;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 
 .footer__social ul li a img {
@@ -557,9 +674,28 @@ footer {
 }
 
 .footer__social img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     object-fit: contain;
+}
+
+.footer-cont__telephone {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-cont__telephone img {
+    width: 25px;
+    height: 25px;
+}
+
+.footer_telephone {
+    font-size: 18px;
+    color: #696868;
+    letter-spacing: 2px;
 }
 
 .footer__copy {

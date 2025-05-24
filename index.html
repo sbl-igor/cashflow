@@ -9,19 +9,12 @@
     <link rel="stylesheet" href="./media.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" href="./img/fav.jpg" type="image/x-icon">
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+e2nGh6DdIv8r5eyCUNJqk1tq3DgG1zJSRkZ3/Jtk="
-    crossorigin=""
-    />
 </head>
 <body>
 
     <header class="header">
         <div class="container header__container">
-            <img src="./img/cashflow.png" class="logo">
-
+            <a href="index.html"><img src="./img/cashflow.png" class="logo"></a>
             <nav class="header__nav">
                 <ul>
                     <li class="course"><a href="#currency-rates">Узнать курс</a></li>
@@ -54,7 +47,7 @@
                     </p>
                 </div>
                 <div data-aos="fade-left" class="cards-wrapper">
-                    <img id="cards-wrapper-hand" src="./img/back-icon.png" alt="cryptho">
+                    <img id="cards-wrapper-hand" src="./img/cashflow-back (1).png" alt="cryptho">
                 </div>
             </div>
         </section>
@@ -62,21 +55,26 @@
         <section id="currency-rates" class="services common-section">
             <div class="container">
                 <div data-aos="fade-right" class="currency-rates">
-                    <h4 class="rates-title">💰 Курс валют <span></span>:</h4>
+                    <h4 class="rates-title">Курс валют <span></span>:</h4>
                     <ul class="rates-list" id="data">
-                        <li class="usd-ars"><strong>💲 USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо ⚡️</li>
-                        <li class="usdt-ars"><strong>💲 USDT/ARS:</strong> до 500 - <span id="usdt-ars-value-1"></span> песо<br>от 500 - <span id="usdt-ars-value-2"></span> песо ⚡️</li>
-                        <li class="rub-ars"><strong>🇷🇺 RUB/ARS:</strong> 10.000 рублей - <span id="rub-ars-value"></span> песо ⚡️</li>
-                        <li class="rub-usd"><strong>🇷🇺 RUB/USD:</strong> <span id="rub-usd-value"></span> рублей - 1 usd </li>
-                        <li class="eur-ars"><strong>💲 EUR/ARS:</strong> <span id="eur-ars-value"></span> песо </li>
-                        <li class="kzt-ars"><strong>🇰🇿 KZT/ARS:</strong> 63.300 тенге - <span id="kzt-ars-value"></span> песо ⚡️</li>
-                        <li class="usdt-usd"><strong>💵 USDT/USD:</strong> <span id="usdt-usd-value"></span> % </li>
-                        <li class="ex-rates">💸 Обмен с грузинских/турецких<br>и др. счетов - пишите менеджеру</li>
+                        <li class="usd-ars course"><strong>USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо</li>
+                        <li class="usdt-ars course"><strong>USDT/ARS:</strong> до 500 - <span id="usdt-ars-value-1"></span> песо<br>от 500 - <span id="usdt-ars-value-2"></span> песо</li>
+                        <li class="rub-ars course"><strong>RUB/ARS:</strong> 10.000 рублей - <span id="rub-ars-value"></span> песо</li>
+                        <li class="rub-usd course"><strong>RUB/USD:</strong> <span id="rub-usd-value"></span> рублей - 1 usd </li>
+                        <li class="eur-ars course"><strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> песо </li>
+                        <li class="kzt-ars course"><strong>KZT/ARS:</strong> 63.300 тенге - <span id="kzt-ars-value"></span> песо</li>
+                        <li class="usdt-usd course"><strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> % </li>
+                        <li class="ex-rates">Обмен с грузинских/турецких<br>и др. счетов - пишите менеджеру</li>
                         <ul class="dop-info-rate">
-                            <li>🚚 Доставка от 500 USD по городу - бесплатно</li>
-                            <li>🕖 График работы: с 8:00 до 20:00, доставка до 19:00</li>                                                                                                                                   
-                            <li>😉 Для обмена пишите: <a id="svetlanacashflow" href="https://t.me/svetlanacashflow">@svetlanacashflow</a></li>                                                                                                                                        
-                            <li>🤖 Бот для заявок: <a id="CashflowArgExchange_bot" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a></li>
+                            <li><img class="icon-smile" src="./img/icons-smiles/truck.svg"> Доставка от 500 USD по городу - бесплатно</li>
+                            <li><img class="icon-smile" src="./img/icons-smiles/alarm.svg"> График работы: с 8:00 до 20:00, доставка до 19:00</li>                                                                                                                                   
+                            <li><img class="icon-smile" src="./img/icons-smiles/exchange.svg">
+                                <div>
+                                    Для обмена пишите:
+                                    <a id="svetlanacashflow" href="https://t.me/svetlanacashflow">@svetlanacashflow</a>
+                                </div>
+                            </li>                                                                                                                                        
+                            <li><img class="icon-smile" src="./img/icons-smiles/robot.svg" alt="robot">Бот для заявок:<a id="CashflowArgExchange_bot" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a></li>
                         </ul>
                     </ul>                    
                 </div>
@@ -84,6 +82,64 @@
                     <h3 class="title">Узнать курс</h3>
                     <p class="subtitle">Наш обменник предоставляет актуальные курсы валют в режиме реального времени. Вы всегда будете в курсе самых выгодных предложений благодаря мгновенному обновлению информации. Узнайте текущий курс криптовалют, фиатных и электронных валют за несколько секунд и примите решение о выгодной сделке. Мы гарантируем прозрачность и точность данных, чтобы вы могли уверенно совершать обменные операции.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pickup common-section">
+            <div class="container">
+                <div data-aos="fade-right" class="title-wrapper">
+                    <h3 class="title">Как обменять валюту с CashFlow</h3>
+                    <p class="subtitle">Менять валюту можно просто и без лишних вопросов. Вот как это работает</p>
+                </div>
+                <div class="pickup-instruction">
+                    <div class="pickup-instruction__item">
+                        <img class="pickup-img" src="./img/images-guides/1-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Напиши нам в WhatsApp</h4>
+                            <a href="https://wa.me/5491137823353">+54 9 11 3782-3353</a><br><br>
+                            Что написать:<br>
+                            Привет! Хочу обменять валюту.
+                            Укажи, пожалуйста, сумму и валюту, которую хочешь обменять, а также город (Буэнос-Айрес) и способ получения — самовывоз или доставка.
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item">
+                        <img class="pickup-img" src="./img/images-guides/2-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Получи актуальный курс</h4>
+                            Мы вышлем свежие курсы — они могут немного меняться в течение дня
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item">
+                        <img class="pickup-img" src="./img/images-guides/3-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Договорись о времени</h4>
+                            Если выбираешь самовывоз, мы работаем по записи по адресу: Tucumán 1484, CABA (центр). Приходи строго в назначенное время!<br>
+
+                            <ul class="pickup-instruction__item-title-list">
+                                Если нужна доставка, согласуем удобный адрес, сумму и время.
+                                <li>• От 100 до 500 USD — доставка 3000 ARS</li>
+                                <li>• От 500 USD — бесплатно</li>
+                                <li>• Срочная доставка — 5 USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item">
+                        <img class="pickup-img" src="./img/images-guides/4-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Подтверди детали</h4>
+                            После согласования мы пришлём тебе единым сообщением все детали:<br>
+                            курс, адрес или имя курьера, точную сумму, а также стоимость доставки, если она есть.
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item">
+                        <img class="pickup-img" src="./img/images-guides/5-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Обмен на месте</h4>
+                            Самовывоз — приходишь, обмениваем, всё чётко<br>
+                            Доставка — обмен прямо у двери<br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -109,7 +165,7 @@
                     <div id="footer__social" class="footer__social">
                         <h4>Контакты</h4>
                         <ul>
-                                <li data-aos="fade-up"
+                            <li data-aos="fade-up"
                                 data-aos-delay="150">
                                 <!-- <img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"> -->
                                 <a href="https://wa.me/5491137823353"><img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"></a>
@@ -126,6 +182,11 @@
                                 <a href="https://t.me/svetlanacashflow">Telegram</a>
                             </li>
                         </ul>
+                        <div data-aos="fade-up"
+                        data-aos-delay="450" class="footer-cont__telephone">
+                                <a href="tel:+5491137823353"><img src="./img/telephone-icon.svg" alt="telephone-icon"></a>
+                                <a href="tel:+5491137823353"><p class="footer_telephone">Связаться по телефону</p></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,27 +205,13 @@
             <button class="lang-btn" data-lang="ru">Русский</button>
             <button class="lang-btn" data-lang="en">English</button>
             <button class="lang-btn" data-lang="es">Español</button>
+            <button class="lang-btn" data-lang="pt">Português</button>
             <button class="close-popup"><img src="./img/icons-social/cross.svg" alt="cross"></button>
         </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./href.js"></script>
     <script src="./googletable.js"></script>
-    <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-o9N1j7kBfE4tCp2gkFU6G5HeR4NiEcZ7LZ6QjA9zjMM="
-    crossorigin=""
-    ></script>
-
-    <script>
-        const map = L.map('map').setView([55.751244, 37.618423], 10); // Москва
-
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-        }).addTo(map);
-    </script>
     <script src="./index.js"></script>
 </body>
 </html>

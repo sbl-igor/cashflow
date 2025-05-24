@@ -2,6 +2,9 @@
     .subtitle {
         font-size: 12px;
     }
+    .pickup-img {
+        width: 350px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -28,11 +31,67 @@
         text-align: center;
         margin-left: 0;
     }
+    .footer__social img {
+        height: 100px;
+        width: 100px;
+    }
+    .footer-cont__telephone img {
+        width: 25px;
+        height: 25px;
+    }
+    .footer__social ul li, .footer_telephone {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+    .services .currency-rates {
+        width: 100%;
+    }
+    .services .currency-rates .rates-title {
+        font-size: 20px;
+    }
+    .services .currency-rates .rates-list li.course {
+        font-size: 18px;
+    }
+    .dop-info-rate {
+        padding: 40px 0 0;
+    }
+    .dop-info-rate li {
+        margin-top: 0;
+        font-size: 15px;
+    }
+    .pickup-instruction__item-title {
+        font-size: 12px;
+    }
+    .pickup-instruction__item-subtitle {
+        font-size: 18px;
+    }
+    .pickup-img {
+        width: 300px;
+    }
 }
 
 @media (max-width: 650px) {
     .header__nav .course, .header__nav .contacthref {
         display: none;
+    }
+    .dop-info-rate li {
+        justify-content: flex-start;
+    }
+    .pickup-instruction__item {
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .pickup-img {
+        width: 200px;
+    }
+    .pickup-instruction__item:nth-child(2n) {
+        flex-direction: row;
+    }
+    .pickup-instruction__item:nth-child(2n+1) .pickup-instruction__item-title {
+        text-align: right;
+    }
+    .title {
+        font-size: 28px;
     }
 }
 
@@ -40,8 +99,15 @@
     .welcome__heading {
         font-size: 28px;
     }
+    .welcome__links a {
+        max-width: 300px;
+    }
     .services .currency-rates .rates-list li {
         white-space: normal;
+    }
+    .dop-info-rate {
+        font-size: 14px;
+        text-align: left;
     }
     .footer__social ul {
         flex-wrap: wrap;
@@ -49,6 +115,22 @@
     .footer__desc {
         padding: 30px 0;
     }
+    .pickup-instruction__item {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        text-align: center;
+    }
+    .pickup-instruction__item:nth-child(2n) {
+        flex-direction: column;
+        text-align: center;
+    }
+    .pickup-instruction__item:nth-child(2n+1) .pickup-instruction__item-title, .pickup-instruction__item:nth-child(2n) .pickup-instruction__item-title {
+        text-align: center;
+    }   
+    .pickup-instruction {
+        padding: 45px 0 0;
+    } 
 }
 
 @media (max-width: 400px) {
@@ -77,4 +159,10 @@
         padding: 15px 0;
         font-size: 12px;
     }
+    .pickup-instruction__item {
+        align-items: flex-start;
+    }
+    .pickup-instruction__item:nth-child(2n+1) .pickup-instruction__item-title, .pickup-instruction__item:nth-child(2n) .pickup-instruction__item-title {
+        text-align: left;
+    }   
 }
