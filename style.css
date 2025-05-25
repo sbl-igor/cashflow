@@ -546,6 +546,10 @@ p {
     font-size: 22px;
 }
 
+.pickup-instruction__item-title-text {
+    color: #c9c8c8;
+}
+
 /* MAP */
 
 .map {
