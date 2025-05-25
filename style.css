@@ -494,7 +494,7 @@ p {
 }
 
 .pickup-img {
-    max-width: 500px;
+    max-width: 400px;
     filter: brightness(0.6) drop-shadow(0 0 10px rgba(0, 255, 100, 0.6));
     transition: all 0.3s ease;  
 }
@@ -509,9 +509,9 @@ p {
 
 .pickup-instruction__item {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
 }
 
 .pickup-instruction__item:hover .pickup-img {
