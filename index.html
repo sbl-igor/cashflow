@@ -58,11 +58,11 @@
                 <div data-aos="fade-right" class="currency-rates">
                     <h4 class="rates-title">Курс валют <span></span>:</h4>
                     <ul class="rates-list" id="data">
-                        <li class="usd-ars course"><strong>USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо</li>
                         <li class="usdt-ars course"><strong>USDT/ARS:</strong> до 500 - <span id="usdt-ars-value-1"></span> песо<br>от 500 - <span id="usdt-ars-value-2"></span> песо</li>
+                        <li class="usd-ars course"><strong>USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо</li>
                         <li class="rub-ars course"><strong>RUB/ARS:</strong> 10.000 рублей - <span id="rub-ars-value"></span> песо</li>
                         <li class="rub-usd course"><strong>RUB/USD:</strong> <span id="rub-usd-value"></span> рублей - 1 usd </li>
-                        <li class="eur-ars course"><strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> песо </li>
+                        <li class="eur-ars course"><strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> песо - 1 eur </li>
                         <li class="kzt-ars course"><strong>KZT/ARS:</strong> 63.300 тенге - <span id="kzt-ars-value"></span> песо</li>
                         <li class="usdt-usd course"><strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> % </li>
                         <li class="ex-rates">Обмен с грузинских/турецких<br>и др. счетов - пишите менеджеру</li>
@@ -98,7 +98,10 @@
                         <img class="pickup-img" src="./img/images-guides/1-step.png" alt="step">
                         <div class="pickup-instruction__item-title">
                             <h4 class="pickup-instruction__item-subtitle">Напиши нам в WhatsApp</h4>
-                            <a href="https://wa.me/5491137823353">+54 9 11 3782-3353</a><br><br>
+                            <a id="pickup-id" href="https://wa.me/5491137823353">+54 9 11 3782-3353</a><br><br>
+                            <p class="pickup-instruction__item-title-miniinfo">
+                                Наши менеджеры разговаривают на испанском, английском, русском и португальском языке.
+                            </p>
                             <p class="pickup-instruction__item-title-text">
                                 Что написать:<br>
                                 Привет! Хочу обменять валюту.
@@ -176,26 +179,33 @@
                         <h4>Контакты</h4>
                         <ul>
                             <li data-aos="fade-up"
-                                data-aos-delay="150">
+                                data-aos-delay="100">
                                 <!-- <img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"> -->
                                 <a href="https://wa.me/5491137823353"><img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"></a>
                                 <a href="https://wa.me/5491137823353">Whatsapp</a>
                             </li>
                             <li data-aos="fade-up"
-                            data-aos-delay="300">
-                                <a href="https://www.facebook.com/people/CashFlow-Exchange/61576132485730/"><img src="./img/icons-social/facebook-new.svg" alt="Facebook"></a>
+                            data-aos-delay="200">
+                                <a href="https://www.facebook.com/people/CashFlow-Exchange/61576132485730/"><img src="./img/icons-social/icons8-facebook.svg" alt="Facebook"></a>
                                 <a href="https://www.facebook.com/people/CashFlow-Exchange/61576132485730/">Facebook</a>
                             </li>
                             <li data-aos="fade-up"
-                            data-aos-delay="450">
+                            data-aos-delay="300">
                                 <a href="https://t.me/svetlanacashflow"><img src="./img/icons-social/icons8-telegram-app.svg" alt="Telegram"></a>
                                 <a href="https://t.me/svetlanacashflow">Telegram</a>
                             </li>
+                            <li data-aos="fade-up"
+                            data-aos-delay="400">
+                                <a href="https://www.instagram.com/cash_flow.ba/#"><img src="./img/icons-social/icons8-instagram.svg" alt="Instagram"></a>
+                                <a href="https://t.me/svetlanacashflow">Instagram</a>
+                            </li>
                         </ul>
                         <div data-aos="fade-up"
-                        data-aos-delay="450" class="footer-cont__telephone">
-                                <a href="tel:+5491137823353"><img src="./img/telephone-icon.svg" alt="telephone-icon"></a>
-                                <a id="tel-id" href="tel:+5491137823353"><p class="footer_telephone">Связаться по телефону</p></a>
+                                data-aos-delay="450" class="">
+                                <a href="tel:+545491137823353" class="footer-cont__telephone">
+                                    <img src="./img/telephone-icon.svg" alt="telephone-icon">
+                                    <p id="tel-id" class="footer_telephone">Связаться по телефону</p>
+                                </a>
                         </div>
                     </div>
                 </div>

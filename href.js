@@ -4,8 +4,8 @@ anchors.forEach(anc => {
     anc.addEventListener('click', (e) => {
         e.preventDefault();
 
-        const id = anc.getAttribute('href');
-        const elem = document.querySelector(id);
+        const iditem = anc.getAttribute('href');
+        const elem = document.querySelector(iditem);
         
         window.scroll({
             top: elem.offsetTop - 74,

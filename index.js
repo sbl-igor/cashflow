@@ -88,14 +88,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.footer__copy p').innerHTML = 'Бот для заявок: <a id="CashflowArgExchange_botFooter" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a>';
 
             document.querySelector('.rates-title').innerHTML = 'Курс валют <span>' + document.querySelector('.rates-title span').textContent + '</span>:';
-            document.querySelector('footer #tel-id').innerHTML = '<p class="footer_telephone">Связаться по телефону</p>';
+            document.getElementById('tel-id').innerHTML = '<p class="footer_telephone">Связаться по телефону</p>';
 
             // Элементы списка с курсами валют
             document.getElementById('usd-ars-value').closest('.usd-ars').innerHTML = '<strong>USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо';
             document.getElementById('usdt-ars-value-1').closest('.usdt-ars').innerHTML = '<strong>USDT/ARS:</strong> до 500 - <span id="usdt-ars-value-1"></span> песо<br>свыше 500 - <span id="usdt-ars-value-2"></span> песо';
             document.getElementById('rub-ars-value').closest('.rub-ars').innerHTML = '<strong>RUB/ARS:</strong> 10,000 рублей - <span id="rub-ars-value"></span> песо';
             document.getElementById('rub-usd-value').closest('.rub-usd').innerHTML = '<strong>RUB/USD:</strong> <span id="rub-usd-value"></span> рублей - 1 USD';
-            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> песо';
+            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> песо - 1 EUR';
             document.getElementById('kzt-ars-value').closest('.kzt-ars').innerHTML = '<strong>KZT/ARS:</strong> 63,300 тенге - <span id="kzt-ars-value"></span> песо';
             document.getElementById('usdt-usd-value').closest('.usdt-usd').innerHTML = '<strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> %';
 
@@ -156,14 +156,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.footer__copy p').innerHTML = 'Application bot: <a id="CashflowArgExchange_botFooter" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a>';
             
             document.querySelector('.rates-title').innerHTML = 'Exchange Rates <span>' + document.querySelector('.rates-title span').textContent + '</span>:';
-            document.querySelector('footer #tel-id').innerHTML = '<p class="footer_telephone">Contact by phone</p>';
+            document.getElementById('tel-id').innerHTML = '<p class="footer_telephone">Contact by phone</p>';
 
             // Элементы списка с курсами валют
             document.getElementById('usd-ars-value').closest('.usd-ars').innerHTML = '<strong>USD/ARS:</strong> any amount - <span id="usd-ars-value"></span> pesos';
             document.getElementById('usdt-ars-value-1').closest('.usdt-ars').innerHTML = '<strong>USDT/ARS:</strong> up to 500 - <span id="usdt-ars-value-1"></span> pesos<br>over 500 - <span id="usdt-ars-value-2"></span> pesos';
             document.getElementById('rub-ars-value').closest('.rub-ars').innerHTML = '<strong>RUB/ARS:</strong> 10,000 rubles - <span id="rub-ars-value"></span> pesos';
             document.getElementById('rub-usd-value').closest('.rub-usd').innerHTML = '<strong>RUB/USD:</strong> <span id="rub-usd-value"></span> rubles - 1 USD';
-            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> pesos';
+            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> pesos - 1 EUR';
             document.getElementById('kzt-ars-value').closest('.kzt-ars').innerHTML = '<strong>KZT/ARS:</strong> 63,300 tenge - <span id="kzt-ars-value"></span> pesos';
             document.getElementById('usdt-usd-value').closest('.usdt-usd').innerHTML = '<strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> %';
 
@@ -225,14 +225,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Повторите для всех остальных текстов на странице
 
             document.querySelector('.rates-title').innerHTML = 'Tasa de cambio <span>' + document.querySelector('.rates-title span').textContent + '</span>:'; 
-            document.querySelector('footer #tel-id').innerHTML = '<p class="footer_telephone">Contactar por teléfono</p>';
+            document.getElementById('tel-id').innerHTML = '<p class="footer_telephone">Contactar por teléfono</p>';
 
             // Элементы списка с курсами валют 
             document.getElementById('usd-ars-value').closest('.usd-ars').innerHTML = '<strong>USD/ARS:</strong> cualquier monto - <span id="usd-ars-value"></span> pesos'; 
             document.getElementById('usdt-ars-value-1').closest('.usdt-ars').innerHTML = '<strong>USDT/ARS:</strong> hasta 500 - <span id="usdt-ars-value-1"></span> pesos<br>más de 500 - <span id="usdt-ars-value-2"></span> pesos'; 
             document.getElementById('rub-ars-value').closest('.rub-ars').innerHTML = '<strong>RUB/ARS:</strong> 10,000 rublos - <span id="rub-ars-value"></span> pesos'; 
             document.getElementById('rub-usd-value').closest('.rub-usd').innerHTML = '<strong>RUB/USD:</strong> <span id="rub-usd-value"></span> rublos - 1 USD'; 
-            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> pesos'; 
+            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> pesos - 1 EUR'; 
             document.getElementById('kzt-ars-value').closest('.kzt-ars').innerHTML = '<strong>KZT/ARS:</strong> 63,300 tenge - <span id="kzt-ars-value"></span> pesos'; 
             document.getElementById('usdt-usd-value').closest('.usdt-usd').innerHTML = '<strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> %'; 
             
@@ -292,14 +292,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.footer__copy p').innerHTML = 'Bot para solicitações: <a id="CashflowArgExchange_botFooter" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a>';
             
             document.querySelector('.rates-title').innerHTML = 'Taxa de câmbio <span>' + document.querySelector('.rates-title span').textContent + '</span>:';
-            document.querySelector('footer #tel-id').innerHTML = '<p class="footer_telephone">Contatar por telefone</p>';
+            document.getElementById('tel-id').innerHTML = '<p class="footer_telephone">Contatar por telefone</p>';
             
             // Lista de taxas de câmbio
             document.getElementById('usd-ars-value').closest('.usd-ars').innerHTML = '<strong>USD/ARS:</strong> qualquer valor - <span id="usd-ars-value"></span> pesos';
             document.getElementById('usdt-ars-value-1').closest('.usdt-ars').innerHTML = '<strong>USDT/ARS:</strong> até 500 - <span id="usdt-ars-value-1"></span> pesos<br>acima de 500 - <span id="usdt-ars-value-2"></span> pesos';
             document.getElementById('rub-ars-value').closest('.rub-ars').innerHTML = '<strong>RUB/ARS:</strong> 10.000 rublos - <span id="rub-ars-value"></span> pesos';
             document.getElementById('rub-usd-value').closest('.rub-usd').innerHTML = '<strong>RUB/USD:</strong> <span id="rub-usd-value"></span> rublos - 1 USD';
-            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> pesos';
+            document.getElementById('eur-ars-value').closest('.eur-ars').innerHTML = '<strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> pesos - 1 EUR';
             document.getElementById('kzt-ars-value').closest('.kzt-ars').innerHTML = '<strong>KZT/ARS:</strong> 63.300 tenges - <span id="kzt-ars-value"></span> pesos';
             document.getElementById('usdt-usd-value').closest('.usdt-usd').innerHTML = '<strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> %';
             

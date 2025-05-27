@@ -1,24 +1,26 @@
 // googletable.js
 function loadGoogleSheetData() {
-    const apiTable = 'AIzaSyAqAuvAFoLwiunxVpxXpV4Sy3x0HtPrhUA';
-    const idTable = '1JqWUxssrrcA5UKgPiiC6PMHTM3C5GdEbEgNUw_kj4Ss';
-    const range = 'Лист1!A1:P4';
+    const apiTable = 'AIzaSyCsoUuuNJiDqq9ftgEq6_V9Yuo-ADuhK9o';
+    const idTable = '1bCyr6gNe1fDhYhtaHdaxzVJVb480qZHH-3Olr-tLOVk';
+    const range = 'Лист1!C46:D54';
 
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${idTable}/values/${range}?key=${apiTable}`)
         .then(response => response.json())
         .then(data => {
             const rows = data.values;
 
-            document.getElementById('usd-ars-value').textContent = rows[2][1];
-            document.getElementById('usdt-ars-value-1').textContent = rows[2][10];
-            document.getElementById('usdt-ars-value-2').textContent = rows[3][10];
-            document.getElementById('rub-ars-value').textContent = parseFloat(rows[2][5].replace(",", ".")) * 10000;
-            document.getElementById('rub-usd-value').textContent = rows[2][7];
-            document.getElementById('eur-ars-value').textContent = rows[2][14];
-            document.getElementById('kzt-ars-value').textContent = rows[2][15];
-            document.getElementById('usdt-usd-value').textContent = parseFloat(rows[2][9]) * -1;
+            document.getElementById('usdt-ars-value-1').textContent = rows[1][0];
+            document.getElementById('usd-ars-value').textContent = rows[2][0];
+            document.getElementById('usdt-ars-value-2').textContent = rows[0][0];
+            document.getElementById('rub-ars-value').textContent = rows[3][1];
+            // parseFloat(rows[3][1].replace(",", ".")) * 100;
+            document.getElementById('rub-usd-value').textContent = rows[8][0]
+            document.getElementById('eur-ars-value').textContent = rows[5][0];
+            document.getElementById('kzt-ars-value').textContent = rows[4][1];
+            document.getElementById('usdt-usd-value').textContent = rows[6][0].replace(',', '.') * (-1);
         })
         .catch(error => console.error('Ошибка:', error));
 }
 
 loadGoogleSheetData();
+
