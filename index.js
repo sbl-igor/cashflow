@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#guide1 .pickup-instruction__item-subtitle').textContent = 'Напиши нам в WhatsApp';          
             document.querySelector('#guide1 .pickup-instruction__item-title-text').innerHTML = 'Что написать:<br>Привет! Хочу обменять валюту.<br>Укажи, пожалуйста, сумму и валюту, которую хочешь обменять, а также город (Буэнос-Айрес) и способ получения — самовывоз или доставка.'; 
 
-            document.querySelector('pickup-instruction__item-title-miniinfo').textContent = 'Наши менеджеры разговаривают на испанском, английском, русском и португальском языке.'
+            document.querySelector('.pickup-instruction__item-title-miniinfo').textContent = 'Наши менеджеры разговаривают на испанском, английском, русском и португальском языке.'
 
 
             document.querySelector('#guide2 .pickup-instruction__item-subtitle').textContent = 'Получи актуальный курс';          
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#guide1 .pickup-instruction__item-subtitle').textContent = 'Message us on WhatsApp';
             document.querySelector('#guide1 .pickup-instruction__item-title-text').innerHTML = 'What to write:<br>Hello! I’d like to exchange currency.<br>Please specify the amount and currency you want to exchange, as well as the city (Buenos Aires) and the preferred method — pickup or delivery.';
 
-            document.querySelector('pickup-instruction__item-title-miniinfo').textContent = 'Our managers speak Spanish, English, Russian and Portuguese.';
+            document.querySelector('.pickup-instruction__item-title-miniinfo').textContent = 'Our managers speak Spanish, English, Russian and Portuguese.';
 
             document.querySelector('#guide2 .pickup-instruction__item-subtitle').textContent = 'Get the current rate';
             document.querySelector('#guide2 .pickup-instruction__item-title-text').innerHTML = 'We’ll send you the latest rates — they may slightly change throughout the day.';
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#guide1 .pickup-instruction__item-subtitle').textContent = 'Escríbenos por WhatsApp';
             document.querySelector('#guide1 .pickup-instruction__item-title-text').innerHTML = 'Qué escribir:<br>¡Hola! Quiero cambiar divisas.<br>Por favor, indica el monto y la moneda que deseas cambiar, así como la ciudad (Buenos Aires) y el método preferido — retiro o entrega.';
 
-            document.querySelector('pickup-instruction__item-title-miniinfo').textContent = 'Nuestros gerentes hablan español, inglés, ruso y portugués.';
+            document.querySelector('.pickup-instruction__item-title-miniinfo').textContent = 'Nuestros gerentes hablan español, inglés, ruso y portugués.';
 
             document.querySelector('#guide2 .pickup-instruction__item-subtitle').textContent = 'Recibe la tasa actual';
             document.querySelector('#guide2 .pickup-instruction__item-title-text').innerHTML = 'Te enviaremos las tasas actualizadas — pueden variar ligeramente durante el día.';
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#guide1 .pickup-instruction__item-subtitle').textContent = 'Nos envie mensagem pelo WhatsApp';
             document.querySelector('#guide1 .pickup-instruction__item-title-text').innerHTML = 'O que escrever:<br>Olá! Gostaria de trocar moeda.<br>Por favor, informe o valor e a moeda, a cidade (Buenos Aires) e o método preferido — retirada ou entrega.';
             
-            document.querySelector('pickup-instruction__item-title-miniinfo').textContent = 'Nossos gerentes falam espanhol, inglês, russo e português.';
+            document.querySelector('.pickup-instruction__item-title-miniinfo').textContent = 'Nossos gerentes falam espanhol, inglês, russo e português.';
 
             document.querySelector('#guide2 .pickup-instruction__item-subtitle').textContent = 'Receba a taxa atual';
             document.querySelector('#guide2 .pickup-instruction__item-title-text').innerHTML = 'Enviaremos a taxa atual — ela pode variar levemente ao longo do dia.';
