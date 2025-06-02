@@ -2,7 +2,7 @@
 function loadGoogleSheetData() {
     const apiTable = 'AIzaSyCsoUuuNJiDqq9ftgEq6_V9Yuo-ADuhK9o';
     const idTable = '1bCyr6gNe1fDhYhtaHdaxzVJVb480qZHH-3Olr-tLOVk';
-    const range = 'Лист1!C46:D54';
+    const range = 'Лист1!C5:D13';
 
     fetch(`https://sheets.googleapis.com/v4/spreadsheets/${idTable}/values/${range}?key=${apiTable}`)
         .then(response => response.json())
