@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashFlow</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./media.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="./img/fav.jpg" type="image/x-icon">
+    <script src="//code.jivo.ru/widget/HRfPdZAbx5" async></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html"><img src="./img/cashflow.png" class="logo"></a>
+            <nav class="header__nav">
+                <ul>
+                    <button class="btn-open-register">Регистрация</button>
+                    <button class="btn-open-login">Вход</button>
+
+                    <div id="popup-auth-container" class="popup-auth-container">
+                    <div class="popup-auth-content">
+                        <h3 id="popup-auth-title">Регистрация / Вход</h3>
+                        
+                        <!-- Форма регистрации -->
+                        <div id="popup-register-form">
+                        <input type="text" id="popup-reg-name" placeholder="Имя" />
+                        <input type="email" id="popup-reg-email" placeholder="Email" />
+                        <input type="text" id="popup-reg-referral" placeholder="Реферальный код (если есть)" />
+                        <button id="popup-register-btn">Зарегистрироваться</button>
+                        </div>
+                        
+                        <!-- Форма входа -->
+                        <div id="popup-login-form" style="display:none;">
+                        <input type="email" id="popup-login-email" placeholder="Email" />
+                        <button id="popup-login-btn">Войти</button>
+                        </div>
+
+                        <button class="popup-close-btn"><img src="./img/icons-social/cross.svg" alt="cross"></button>
+                    </div>
+                    </div>
+
+                    <li class="course"><a href="#currency-rates">Узнать курс</a></li>
+                    <li class="contacthref"><a href="#footer__social">Контакты</a></li>
+                    <li><button class="language-btn"><a href="#">
+                        <img src="./img/icons-idiomas/ru.png" alt="ru">
+                    </a></button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <section class="welcome">
+            <div class="container">
+                <h2 data-aos="fade-up" class="welcome__heading">Мы предлагаем безопасные и выгодные условия для обмена валют</h2>
+                <div data-aos="fade-up" class="welcome__links">
+                    <a href="#footer__social" class="link-primary">Связаться с менеджером</a>
+                    <a href="#currency-rates" class="link">Узнать курс</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages common-section">
+            <div class="container">
+                <div data-aos="fade-right" class="title-wrapper">
+                    <h3 class="title">О нас</h3>
+                    <p class="subtitle">Наш обменник предоставляет быстрые, безопасные и выгодные услуги по обмену криптовалюты, фиатных и электронных валют. Мы понимаем важность прозрачности и надежности в финансовых операциях, поэтому предлагаем только проверенные и конкурентоспособные курсы обмена.
+                    </p>
+                </div>
+                <div data-aos="fade-left" class="cards-wrapper">
+                    <img id="cards-wrapper-hand" src="./img/cashflow-back (1).png" alt="cryptho">
+                </div>
+            </div>
+        </section>
+
+        <section id="currency-rates" class="services common-section">
+            <div class="container">
+                <div data-aos="fade-right" class="currency-rates">
+                    <h4 class="rates-title">Курс валют <span></span>:</h4>
+                    <ul class="rates-list" id="data">
+                        <li class="usdt-ars course"><strong>USDT/ARS:</strong> до 500 - <span id="usdt-ars-value-1"></span> песо<br>от 500 - <span id="usdt-ars-value-2"></span> песо</li>
+                        <li class="usd-ars course"><strong>USD/ARS:</strong> любая сумма - <span id="usd-ars-value"></span> песо</li>
+                        <li class="rub-ars course"><strong>RUB/ARS:</strong> 10.000 рублей - <span id="rub-ars-value"></span> песо</li>
+                        <li class="rub-usd course"><strong>RUB/USD:</strong> <span id="rub-usd-value"></span> рублей - 1 usd </li>
+                        <li class="eur-ars course"><strong>EUR/ARS:</strong> <span id="eur-ars-value"></span> песо - 1 eur </li>
+                        <li class="kzt-ars course"><strong>KZT/ARS:</strong> 63.300 тенге - <span id="kzt-ars-value"></span> песо</li>
+                        <li class="usdt-usd course"><strong>USDT/USD:</strong> <span id="usdt-usd-value"></span> % </li>
+                        <li class="ex-rates">Обмен с грузинских/турецких<br>и др. счетов - пишите менеджеру</li>
+                        <ul class="dop-info-rate">
+                            <li><img class="icon-smile" src="./img/icons-smiles/truck.svg"> Доставка от 500 USD по городу - бесплатно</li>
+                            <li><img class="icon-smile" src="./img/icons-smiles/alarm.svg"> График работы: с 8:00 до 20:00, доставка до 19:00</li>                                                                                                                                   
+                            <li><img class="icon-smile" src="./img/icons-smiles/exchange.svg">
+                                <div>
+                                    Для обмена пишите:
+                                    <a id="svetlanacashflow" href="https://t.me/svetlanacashflow">@svetlanacashflow</a>
+                                </div>
+                            </li>                                                                                                                                        
+                            <li><img class="icon-smile" src="./img/icons-smiles/robot.svg" alt="robot">Бот для заявок:<a id="CashflowArgExchange_bot" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a></li>
+                        </ul>
+                    </ul>                    
+                </div>
+                <div data-aos="fade-left" class="title-wrapper">
+                    <h3 class="title">Узнать курс</h3>
+                    <p class="subtitle">Наш обменник предоставляет актуальные курсы валют в режиме реального времени. Вы всегда будете в курсе самых выгодных предложений благодаря мгновенному обновлению информации. Узнайте текущий курс криптовалют, фиатных и электронных валют за несколько секунд и примите решение о выгодной сделке. Мы гарантируем прозрачность и точность данных, чтобы вы могли уверенно совершать обменные операции.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pickup common-section">
+            <div class="container">
+                <div data-aos="fade-right" class="title-wrapper">
+                    <h3 class="title">Как обменять валюту с CashFlow</h3>
+                    <p class="subtitle">Менять валюту можно просто и без лишних вопросов. Вот как это работает</p>
+                </div>
+                <div class="pickup-instruction">
+                    <div class="pickup-instruction__item" id="guide1">
+                        <img class="pickup-img" src="./img/images-guides/1-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Напиши нам в WhatsApp</h4>
+                            <a id="pickup-id" href="https://wa.me/5491137823353">+54 9 11 3782-3353</a><br><br>
+                            <p class="pickup-instruction__item-title-miniinfo">
+                                Наши менеджеры разговаривают на испанском, английском, русском и португальском языке.
+                            </p>
+                            <p class="pickup-instruction__item-title-text">
+                                Что написать:<br>
+                                Привет! Хочу обменять валюту.
+                                Укажи, пожалуйста, сумму и валюту, которую хочешь обменять, а также город (Буэнос-Айрес) и способ получения — самовывоз или доставка.
+                            </p> 
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item" id="guide2">
+                        <img class="pickup-img" src="./img/images-guides/2-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Получи актуальный курс</h4>
+                            <p class="pickup-instruction__item-title-text">
+                                Мы вышлем свежие курсы — они могут немного меняться в течение дня
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item" id="guide3">
+                        <img class="pickup-img" src="./img/images-guides/3-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Договорись о времени</h4>
+                            <p class="pickup-instruction__item-title-text">
+                                Если выбираешь самовывоз, мы работаем по записи по адресу: Tucumán 1484, CABA (центр). Приходи строго в назначенное время!<br>
+                            </p>
+                            <ul class="pickup-instruction__item-title-list">
+                                Если нужна доставка, согласуем удобный адрес, сумму и время.
+                                <li>• От 100 до 500 USD — доставка 3000 ARS</li>
+                                <li>• От 500 USD — бесплатно</li>
+                                <li>• Срочная доставка — 5 USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item" id="guide4">
+                        <img class="pickup-img" src="./img/images-guides/4-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Подтверди детали</h4>
+                            <p class="pickup-instruction__item-title-text">
+                                После согласования мы пришлём тебе единым сообщением все детали:<br>
+                                курс, адрес или имя курьера, точную сумму, а также стоимость доставки, если она есть.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pickup-instruction__item" id="guide5">
+                        <img class="pickup-img" src="./img/images-guides/5-step.png" alt="step">
+                        <div class="pickup-instruction__item-title">
+                            <h4 class="pickup-instruction__item-subtitle">Обмен на месте</h4>
+                            <p class="pickup-instruction__item-title-text">
+                                Самовывоз — приходишь, обмениваем, всё чётко<br>
+                                Доставка — обмен прямо у двери<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map common-section">
+            <div class="container">
+                <div class="title-wrapper">
+                    <h3 class="title">Где нас можно найти?</h3>
+                    <p class="subtitle">Хотите забрать заказ лично? Без проблем — мы всегда рады видеть вас!<br>
+                        Наш пункт самовывоза находится всего в одном квартале от Teatro Colón —<br>
+                        <a href="https://www.google.com/maps?q=Tucumán+1484,+C1050AAD,+Buenos+Aires" target="_blank" style="font-weight: bold">
+                            Tucumán 1484, C1050AAD Cdad. Autónoma de Buenos Aires
+                        </a>.
+                    </p>
+                </div>
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3205.3820068866776!2d-58.39022174977853!3d-34.601737391603805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac6d88bffff%3A0x9fcd1b3e3a0a012!2sTucum%C3%A1n%201484%2C%20C1050AAD%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1sru!2sar!4v1747804676683!5m2!1sen!2sar" width="100%" height="450" style="border:0; border-radius: 30px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer__desc">
+                <div class="container footer__container">
+                    <div id="footer__social" class="footer__social">
+                        <h4>Контакты</h4>
+                        <ul>
+                            <li data-aos="fade-up"
+                                data-aos-delay="100">
+                                <!-- <img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"> -->
+                                <a href="https://wa.me/5491137823353"><img src="./img/icons-social/icons8-whatsapp.svg" alt="whatsapp"></a>
+                                <a href="https://wa.me/5491137823353">Whatsapp</a>
+                            </li>
+                            <li data-aos="fade-up"
+                            data-aos-delay="200">
+                                <a href="https://www.facebook.com/people/Cash-Flow-Exchange/61576897888571/"><img src="./img/icons-social/icons8-facebook.svg" alt="Facebook"></a>
+                                <a href="https://www.facebook.com/people/Cash-Flow-Exchange/61576897888571/">Facebook</a>
+                            </li>
+                            <li data-aos="fade-up"
+                            data-aos-delay="300">
+                                <a href="https://t.me/svetlanacashflow"><img src="./img/icons-social/icons8-telegram-app.svg" alt="Telegram"></a>
+                                <a href="https://t.me/svetlanacashflow">Telegram</a>
+                            </li>
+                            <li data-aos="fade-up"
+                            data-aos-delay="400">
+                                <a href="https://www.instagram.com/cash_flow.ba"><img src="./img/icons-social/icons8-instagram.svg" alt="Instagram"></a>
+                                <a href="https://t.me/svetlanacashflow">Instagram</a>
+                            </li>
+                        </ul>
+                        <div data-aos="fade-up"
+                                data-aos-delay="450" class="">
+                                <a href="tel:+545491137823353" class="footer-cont__telephone">
+                                    <img src="./img/telephone-icon.svg" alt="telephone-icon">
+                                    <p id="tel-id" class="footer_telephone">Связаться по телефону</p>
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__copy">
+                <div class="container">
+                    <p>Бот для заявок: <a id="CashflowArgExchange_botFooter" href="https://t.me/CashflowArgExchange_bot">@CashflowArgExchange_bot</a></p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    <div id="language-popup" class="language-popup">
+        <div class="popup-content">
+            <h3>Выберите язык</h3>
+            <button class="lang-btn" data-lang="ru">Русский</button>
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="es">Español</button>
+            <button class="lang-btn" data-lang="pt">Português</button>
+            <button class="close-popup"><img src="./img/icons-social/cross.svg" alt="cross"></button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./href.js"></script>
+    <script src="./googletable.js"></script>
+    <script src="./registration.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
