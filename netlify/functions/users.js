@@ -1,22 +1,20 @@
 import { google } from "googleapis";
-import path from "path";
 
-// 🔑 путь к скачанному JSON ключу сервисного аккаунта
-const KEY_PATH = path.join(process.cwd(), "service-account.json");
-
-// ⚙️ настройки
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
-const SPREADSHEET_ID = "16V78B6_ucC19jer1MA9An0RGU2XXqiwkeiZRWKnV4bI"; // вставь сюда ID таблицы (из URL)
+const SPREADSHEET_ID = "16V78B6_ucC19jer1MA9An0RGU2XXqiwkeiZRWKnV4bI";
 const SHEET_NAME = "Users";
 
-// создаём клиент Google Sheets
+// клиент Google Sheets через ENV
 const auth = new google.auth.GoogleAuth({
-  keyFile: KEY_PATH,
+  credentials: {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  },
   scopes: SCOPES,
 });
+
 const sheets = google.sheets({ version: "v4", auth });
 
-// генерация реферального кода
 function generateReferralCode(length = 6) {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let code = "";
@@ -26,35 +24,21 @@ function generateReferralCode(length = 6) {
   return code;
 }
 
-// Netlify Function handler
 export async function handler(event) {
   if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed" }),
-    };
+    return { statusCode: 405, body: "Method not allowed" };
   }
 
   try {
     const data = JSON.parse(event.body);
 
-    if (!data.action) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: "No action provided" }),
-      };
-    }
-
-    // получаем все строки с листа
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: `${SHEET_NAME}!A:E`,
     });
     const users = res.data.values || [];
 
-    // -------------------
-    // 📌 РЕГИСТРАЦИЯ
-    // -------------------
+    // 📌 Регистрация
     if (data.action === "register") {
       const { name, email, invitedBy } = data;
       if (!name || !email) {
@@ -64,8 +48,7 @@ export async function handler(event) {
         };
       }
 
-      // проверяем, зарегистрирован ли email
-      const emails = users.map(row => row[1]);
+      const emails = users.map(r => r[1]);
       if (emails.includes(email)) {
         return {
           statusCode: 200,
@@ -73,27 +56,24 @@ export async function handler(event) {
         };
       }
 
-      // генерируем код и скидку
       const referralCode = generateReferralCode();
       let discount = 0;
 
-      // если указали чей-то код → пригласившему даём скидку
       if (invitedBy) {
         for (let i = 0; i < users.length; i++) {
           if (users[i][2] === invitedBy) {
-            const row = i + 1; // индекс строки в таблице (1-based)
+            const row = i + 1;
             await sheets.spreadsheets.values.update({
               spreadsheetId: SPREADSHEET_ID,
               range: `${SHEET_NAME}!D${row}`,
               valueInputOption: "RAW",
-              requestBody: { values: [[5]] }, // ставим 5% скидки
+              requestBody: { values: [[5]] },
             });
             break;
           }
         }
       }
 
-      // добавляем нового юзера
       await sheets.spreadsheets.values.append({
         spreadsheetId: SPREADSHEET_ID,
         range: SHEET_NAME,
@@ -109,9 +89,7 @@ export async function handler(event) {
       };
     }
 
-    // -------------------
-    // 📌 ЛОГИН
-    // -------------------
+    // 📌 Логин
     if (data.action === "login") {
       const { email } = data;
       if (!email) {
@@ -141,12 +119,10 @@ export async function handler(event) {
       };
     }
 
-    // неизвестное действие
     return {
       statusCode: 400,
       body: JSON.stringify({ status: "error", message: "Unknown action" }),
     };
-
   } catch (err) {
     console.error("❌ Ошибка:", err);
     return {
