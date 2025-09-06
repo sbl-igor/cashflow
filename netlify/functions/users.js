@@ -1,10 +1,16 @@
 import { google } from "googleapis";
-import serviceAccount from "../../userscashflow.json" assert { type: "json" };
+import fs from "fs";
+import path from "path";
 
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 const SPREADSHEET_ID = "16V78B6_ucC19jer1MA9An0RGU2XXqiwkeiZRWKnV4bI";
 const SHEET_NAME = "Users";
 
+// 📂 читаем ключ из файла
+const keyFile = path.resolve("userscashflow.json");
+const serviceAccount = JSON.parse(fs.readFileSync(keyFile, "utf-8"));
+
+// 🔑 Авторизация Google API
 const auth = new google.auth.GoogleAuth({
   credentials: {
     client_email: serviceAccount.client_email,
@@ -15,6 +21,7 @@ const auth = new google.auth.GoogleAuth({
 
 const sheets = google.sheets({ version: "v4", auth });
 
+// 🔢 Генератор реферальных кодов
 function generateReferralCode(length = 6) {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let code = "";
@@ -32,6 +39,7 @@ export async function handler(event) {
   try {
     const data = JSON.parse(event.body);
 
+    // получаем всех юзеров
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
       range: `${SHEET_NAME}!A:E`,
@@ -44,15 +52,21 @@ export async function handler(event) {
       if (!name || !email) {
         return {
           statusCode: 400,
-          body: JSON.stringify({ status: "error", message: "Name and email required" }),
+          body: JSON.stringify({
+            status: "error",
+            message: "Name and email required",
+          }),
         };
       }
 
-      const emails = users.map(r => r[1]);
+      const emails = users.map((r) => r[1]);
       if (emails.includes(email)) {
         return {
           statusCode: 200,
-          body: JSON.stringify({ status: "error", message: "Email already registered" }),
+          body: JSON.stringify({
+            status: "error",
+            message: "Email already registered",
+          }),
         };
       }
 
@@ -95,7 +109,10 @@ export async function handler(event) {
       if (!email) {
         return {
           statusCode: 400,
-          body: JSON.stringify({ status: "error", message: "Email required" }),
+          body: JSON.stringify({
+            status: "error",
+            message: "Email required",
+          }),
         };
       }
 
