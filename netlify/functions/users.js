@@ -6,8 +6,7 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 const SPREADSHEET_ID = "16V78B6_ucC19jer1MA9An0RGU2XXqiwkeiZRWKnV4bI";
 const SHEET_NAME = "Users";
 
-// 📂 читаем ключ из файла
-const keyFile = path.resolve("userscashflow.json");
+const keyFile = path.resolve(__dirname, "userscashflow.json");
 const serviceAccount = JSON.parse(fs.readFileSync(keyFile, "utf-8"));
 
 // 🔑 Авторизация Google API
