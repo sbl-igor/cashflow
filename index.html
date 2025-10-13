@@ -18,30 +18,45 @@
             <a href="index.html"><img src="./img/cashflow.png" class="logo"></a>
             <nav class="header__nav">
                 <ul>
-                    <button class="btn-open-register">Регистрация</button>
-                    <button class="btn-open-login">Вход</button>
+                    <ul>
+                        <li>
+                            <button id="btn-registration">Регистрация</button>
+                        </li>
+                        <li>
+                            <button id="btn-login">Вход</button>
+                        </li>
+                    </ul>
 
-                    <div id="popup-auth-container" class="popup-auth-container">
-                    <div class="popup-auth-content">
-                        <h3 id="popup-auth-title">Регистрация / Вход</h3>
-                        
-                        <!-- Форма регистрации -->
-                        <div id="popup-register-form">
-                        <input type="text" id="popup-reg-name" placeholder="Имя" />
-                        <input type="email" id="popup-reg-email" placeholder="Email" />
-                        <input type="text" id="popup-reg-referral" placeholder="Реферальный код (если есть)" />
-                        <button id="popup-register-btn">Зарегистрироваться</button>
-                        </div>
-                        
-                        <!-- Форма входа -->
-                        <div id="popup-login-form" style="display:none;">
-                        <input type="email" id="popup-login-email" placeholder="Email" />
-                        <button id="popup-login-btn">Войти</button>
-                        </div>
+                    <!-- Поп-ап окна -->
+                    <div id="popup-registration" class="popup">
+                        <div class="popup-content">
+                            <h2>Регистрация</h2>
+                            <form id="form-registration">
+                                <input type="text" id="reg-name" placeholder="Имя" required> 
+                                <input type="email" id="reg-email" placeholder="Email" required>
+                                <input type="password" id="reg-password" placeholder="Пароль" required>
+                                <input type="text" id="reg-referral-code" placeholder="Реферальный код (необязательно)">
 
-                        <button class="popup-close-btn"><img src="./img/icons-social/cross.svg" alt="cross"></button>
+                                <button type="submit">Зарегистрироваться</button>
+                            </form>
+                            <button class="close-btn" data-close-target="#popup-registration">X</button>
+                        </div>
                     </div>
+
+                    <div id="popup-login" class="popup">
+                        <div class="popup-content">
+                            <h2>Вход</h2>
+                            <form id="form-login">
+                                <input type="text" id="login-name" placeholder="Имя" required>
+                                <input type="password" id="login-password" placeholder="Пароль" required>
+
+                                <button type="submit">Войти</button>
+                            </form>
+                            <button class="close-btn" data-close-target="#popup-login">X</button>
+                        </div>
                     </div>
+
+                    <div id="overlay"></div>
 
                     <li class="course"><a href="#currency-rates">Узнать курс</a></li>
                     <li class="contacthref"><a href="#footer__social">Контакты</a></li>

@@ -1,0 +1,16 @@
+{
+  "name": "cashflow",
+  "version": "1.0.0",
+  "description": "User registration and Google API integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^120.0.0",
+    "bcryptjs": "^2.4.3"
+  }
+}
