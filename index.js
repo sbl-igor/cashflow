@@ -43,6 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function changeLanguage(lang) {
         if (lang === 'ru') {
+            // registration
+            document.getElementById('btn-registration').textContent = 'Регистрация';
+            document.getElementById('btn-login').textContent = 'Вход';
+            document.querySelector('#popup-registration h2').textContent = 'Регистрация';
+            document.querySelector('#form-registration button').textContent = 'Зарегистрироваться';
+            document.querySelector('#popup-login h2').textContent = 'Вход';
+            document.querySelector('#form-login button').textContent = 'Войти';
+            document.getElementById('reg-name').placeholder = 'Имя';
+            document.getElementById('reg-email').placeholder = 'Email';
+            document.getElementById('reg-password').placeholder = 'Пароль';
+            document.getElementById('reg-referral-code').placeholder = 'Реферальный код (необязательно)';
+            
+
+
             document.querySelector('.popup-content h3').textContent = 'Выберите язык';
             // nav 
             document.querySelector('.welcome__heading').textContent = 'Мы предлагаем безопасные и выгодные условия для обмена валют';
@@ -113,6 +127,20 @@ document.addEventListener('DOMContentLoaded', function() {
             loadGoogleSheetData();
 
         } else if (lang === 'en') {
+            // registration
+            document.getElementById('btn-registration').textContent = 'Register';
+            document.getElementById('btn-login').textContent = 'Login';
+            document.querySelector('#popup-registration h2').textContent = 'Register';
+            document.querySelector('#form-registration button').textContent = 'Register';
+            document.querySelector('#popup-login h2').textContent = 'Login';
+            document.querySelector('#form-login button').textContent = 'Login';
+            document.getElementById('reg-name').placeholder = 'Name';
+            document.getElementById('reg-email').placeholder = 'Email';
+            document.getElementById('reg-password').placeholder = 'Password';
+            document.getElementById('reg-referral-code').placeholder = 'Referral code (optional)';
+            
+
+
             document.querySelector('.popup-content h3').textContent = 'Select Language';
 
             document.querySelector('.welcome__heading').textContent = 'We offer safe and favorable conditions for currency exchange';
@@ -183,6 +211,19 @@ document.addEventListener('DOMContentLoaded', function() {
             loadGoogleSheetData();
 
         } else if (lang === 'es') {
+            // registration
+            document.getElementById('btn-registration').textContent = 'Registrarse';
+            document.getElementById('btn-login').textContent = 'Iniciar sesión';
+            document.querySelector('#popup-registration h2').textContent = 'Registrarse';
+            document.querySelector('#form-registration button').textContent = 'Registrarse';
+            document.querySelector('#popup-login h2').textContent = 'Iniciar sesión';
+            document.querySelector('#form-login button').textContent = 'Iniciar sesión';
+            document.getElementById('reg-name').placeholder = 'Nombre';
+            document.getElementById('reg-email').placeholder = 'Correo electrónico';
+            document.getElementById('reg-password').placeholder = 'Contraseña';
+            document.getElementById('reg-referral-code').placeholder = 'Código de referencia (opcional)';
+
+
             document.querySelector('.popup-content h3').textContent = 'Seleccionar idioma';
 
             document.querySelector('.welcome__heading').textContent = 'Ofrecemos condiciones seguras y favorables para el intercambio de divisas';
@@ -253,6 +294,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             loadGoogleSheetData();            
         } else if (lang === 'pt') {
+            // registration
+            document.getElementById('btn-registration').textContent = 'Cadastre-se';
+            document.getElementById('btn-login').textContent = 'Entrar';
+            document.querySelector('#popup-registration h2').textContent = 'Cadastre-se';
+            document.querySelector('#form-registration button').textContent = 'Cadastre-se';
+            document.querySelector('#popup-login h2').textContent = 'Entrar';
+            document.querySelector('#form-login button').textContent = 'Entrar';
+            document.getElementById('reg-name').placeholder = 'Nome';
+            document.getElementById('reg-email').placeholder = 'E-mail';
+            document.getElementById('reg-password').placeholder = 'Senha';
+            document.getElementById('reg-referral-code').placeholder = 'Código de referência (opcional)';
+
+
             document.querySelector('.popup-content h3').textContent = 'Selecionar idioma';
 
             document.querySelector('.welcome__heading').textContent = 'Oferecemos condições seguras e vantajosas para troca de moedas';

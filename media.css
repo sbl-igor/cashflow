@@ -84,10 +84,13 @@
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
     .header__nav .course, .header__nav .contacthref {
         display: none;
     }
+}
+
+@media (max-width: 650px) {
     .dop-info-rate li {
         justify-content: flex-start;
     }
@@ -110,6 +113,18 @@
 }
 
 @media (max-width: 575px) {
+    ul.list-reg {
+        margin-right: 0;
+    }
+    .list-reg li:last-child {
+    margin-left: 20px;
+    }
+    .reg-list-main li:last-child {
+        margin-left: 20px;
+    }
+    ul.list-reg li button {
+        font-size: 12px;
+    }
     .welcome__heading {
         font-size: 28px;
     }
@@ -147,6 +162,13 @@
     } 
     .footer-cont__telephone {
         margin: 40px auto 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .header__container .logo {
+        width: 96px;
+        margin-top: 5px;
     }
 }
 

@@ -1,102 +1,84 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("popup-auth-container");
-  const popupTitle = document.getElementById("popup-auth-title");
-  const registerForm = document.getElementById("popup-register-form");
-  const loginForm = document.getElementById("popup-login-form");
+// Получаем ссылки на все нужные элементы
 
-  const openRegisterBtn = document.querySelector(".btn-open-register");
-  const openLoginBtn = document.querySelector(".btn-open-login");
-  const closeBtn = document.querySelector(".popup-close-btn");
+const btnRegistration = document.getElementById('btn-registration');
+const btnLogin = document.getElementById('btn-login');
 
-  const NETLIFY_FUNCTION_URL = "/.netlify/functions/users"; // URL Netlify Function
+const popupRegistration = document.getElementById('popup-registration');
+const popupLogin = document.getElementById('popup-login');
 
-  // открыть регистрацию
-  openRegisterBtn.addEventListener("click", () => {
-    popup.style.display = "flex";
-    popupTitle.textContent = "Регистрация";
-    registerForm.style.display = "block";
-    loginForm.style.display = "none";
-  });
+const overlay = document.getElementById('overlay');
+const closeButtons = document.querySelectorAll('.close-btn');
 
-  // открыть вход
-  openLoginBtn.addEventListener("click", () => {
-    popup.style.display = "flex";
-    popupTitle.textContent = "Вход";
-    registerForm.style.display = "none";
-    loginForm.style.display = "block";
-  });
+const registrationForm = document.getElementById('form-registration');
+const loginForm = document.getElementById('form-login')
 
-  // закрыть
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
+/**
+ * Открывает указанное модальное окно.
+ * @param {HTMLElement} popup - элемент модального окна для открытия.
+ */
 
-  // закрытие по клику вне окна
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) popup.style.display = "none";
-  });
-
-  // -----------------------
-  // Регистрация
-  // -----------------------
-  document.getElementById("popup-register-btn").addEventListener("click", async () => {
-    const name = document.getElementById("popup-reg-name").value.trim();
-    const email = document.getElementById("popup-reg-email").value.trim();
-    const invitedBy = document.getElementById("popup-reg-referral").value.trim();
-
-    if (!name || !email) {
-      alert("Заполните все поля");
-      return;
+function openPopup(popup) {
+    if (popup) {
+        popup.classList.add('active');
+        overlay.classList.add('active');
+        // Опционально: Блокируем прокрутку страницы
+        // document.body.style.overflow = 'hidden';
     }
+}
 
-    try {
-      const res = await fetch(NETLIFY_FUNCTION_URL, {
-        method: "POST",
-        body: JSON.stringify({ action: "register", name, email, invitedBy }),
-        headers: { "Content-Type": "application/json" },
-      });
+/**
+ * Закрывает указанное модальное окно.
+ * @param {HTMLElement} popup - элемент модального окна для закрытия.
+ */
 
-      const data = await res.json();
-      if (data.status === "error") {
-        alert(data.message);
-      } else {
-        alert(`Регистрация успешна!\nВаш реферальный код: ${data.referralCode}\nСкидка: ${data.discount}`);
-        popup.style.display = "none";
-      }
-    } catch (err) {
-      alert("Ошибка подключения к серверу");
-      console.error(err);
+function closePopup(popup) {
+    if (popup) {
+        popup.classList.remove('active');
+        // Проверяем, есть ли еще активные pop-up'ы перед скрытием оверлея
+        const activePopups = document.querySelectorAll('.popup.active');
+        if (activePopups.length === 0) {
+            overlay.classList.remove('active');
+            // Восстанавливаем прокрутку страницы
+            // document.body.style.overflow = 'auto';
+        }
     }
-  });
+}
 
-  // -----------------------
-  // Вход
-  // -----------------------
-  document.getElementById("popup-login-btn").addEventListener("click", async () => {
-    const email = document.getElementById("popup-login-email").value.trim();
-
-    if (!email) {
-      alert("Введите email");
-      return;
-    }
-
-    try {
-      const res = await fetch(NETLIFY_FUNCTION_URL, {
-        method: "POST",
-        body: JSON.stringify({ action: "login", email }),
-        headers: { "Content-Type": "application/json" },
-      });
-
-      const data = await res.json();
-      if (data.status === "error") {
-        alert(data.message);
-      } else {
-        alert(`Добро пожаловать, ${data.name}!\nВаша скидка: ${data.discount}\nВаш реферальный код: ${data.referralCode}`);
-        popup.style.display = "none";
-      }
-    } catch (err) {
-      alert("Ошибка подключения к серверу");
-      console.error(err);
-    }
-  });
+// 1. Обработка кнопок на панели 
+btnRegistration.addEventListener('click', () => {
+    openPopup(popupRegistration);
 });
+
+btnLogin.addEventListener('click', () => {
+    openPopup(popupLogin);
+});
+
+// 2. Обработка кнопок закрытия (X) внутри pop-up'ов
+closeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        // Получаем ID pop-up'а из атрибута data-close-target
+        const targetSelector = event.currentTarget.dataset.closeTarget;
+        const targetPopup = document.querySelector(targetSelector);
+        
+        closePopup(targetPopup);
+    });
+});
+
+// 3. Обработка закрытия по клику на оверлей
+overlay.addEventListener('click', () => {
+    // Находим все активные pop-up'ы и закрываем их
+    const activePopups = document.querySelectorAll('.popup.active');
+    activePopups.forEach(popup => {
+        closePopup(popup);
+    });
+})
+
+// 4. Обработка закрытия по нажатию клавиши ESC 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        const activePopups = document.querySelectorAll('.popup.active');
+        activePopups.forEach(popup => {
+            closePopup(popup);
+        });
+    }
+})

@@ -17,8 +17,13 @@
         <div class="container header__container">
             <a href="index.html"><img src="./img/cashflow.png" class="logo"></a>
             <nav class="header__nav">
-                <ul>
-                    <ul>
+
+                    <!-- -------------- -->
+                    <!-- Form of registration  -->
+                    <!-- -------------- -->
+
+                <ul class="reg-list-main">
+                    <ul class="list-reg">
                         <li>
                             <button id="btn-registration">Регистрация</button>
                         </li>
@@ -27,36 +32,9 @@
                         </li>
                     </ul>
 
-                    <!-- Поп-ап окна -->
-                    <div id="popup-registration" class="popup">
-                        <div class="popup-content">
-                            <h2>Регистрация</h2>
-                            <form id="form-registration">
-                                <input type="text" id="reg-name" placeholder="Имя" required> 
-                                <input type="email" id="reg-email" placeholder="Email" required>
-                                <input type="password" id="reg-password" placeholder="Пароль" required>
-                                <input type="text" id="reg-referral-code" placeholder="Реферальный код (необязательно)">
-
-                                <button type="submit">Зарегистрироваться</button>
-                            </form>
-                            <button class="close-btn" data-close-target="#popup-registration">X</button>
-                        </div>
-                    </div>
-
-                    <div id="popup-login" class="popup">
-                        <div class="popup-content">
-                            <h2>Вход</h2>
-                            <form id="form-login">
-                                <input type="text" id="login-name" placeholder="Имя" required>
-                                <input type="password" id="login-password" placeholder="Пароль" required>
-
-                                <button type="submit">Войти</button>
-                            </form>
-                            <button class="close-btn" data-close-target="#popup-login">X</button>
-                        </div>
-                    </div>
-
-                    <div id="overlay"></div>
+                    <!-- -------------- -->
+                    <!-- Form of registration  -->
+                    <!-- -------------- -->
 
                     <li class="course"><a href="#currency-rates">Узнать курс</a></li>
                     <li class="contacthref"><a href="#footer__social">Контакты</a></li>
@@ -64,9 +42,44 @@
                         <img src="./img/icons-idiomas/ru.png" alt="ru">
                     </a></button></li>
                 </ul>
+
             </nav>
         </div>
     </header>
+
+    <div id="popup-registration" class="popup">
+        <div class="popup-content-registration">
+            <h2>Регистрация</h2>
+            <form id="form-registration">
+                <input type="text" id="reg-name" placeholder="Имя" required> 
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="password" id="reg-password" placeholder="Пароль" required>
+                <input type="text" id="reg-referral-code" placeholder="Реферальный код (необязательно)">
+
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+            <button class="close-btn" data-close-target="#popup-registration">
+                <img src="./img/icons-social/cross.svg" alt="cross">
+            </button>
+        </div>
+    </div>
+
+    <div id="popup-login" class="popup">
+        <div class="popup-content-registration">
+            <h2>Вход</h2>
+            <form id="form-login">
+                <input type="text" id="login-name" placeholder="Имя" required>
+                <input type="password" id="login-password" placeholder="Пароль" required>
+
+                <button type="submit">Войти</button>
+            </form>
+            <button class="close-btn" data-close-target="#popup-login">
+                <img src="./img/icons-social/cross.svg" alt="cross">
+            </button>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
 
     <main class="main">
 
@@ -259,6 +272,7 @@
         </footer>
 
     </main>
+
     <div id="language-popup" class="language-popup">
         <div class="popup-content">
             <h3>Выберите язык</h3>
