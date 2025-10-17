@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^120.0.0",
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "google-spreadsheet": "^5.0.2",
+    "googleapis": "^120.0.0"
   }
 }

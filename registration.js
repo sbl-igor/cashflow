@@ -82,3 +82,114 @@ document.addEventListener('keydown', (event) => {
         });
     }
 })
+
+// ======================================================
+// НОВЫЙ БЛОК: ФУНКЦИИ ОТПРАВКИ ДАННЫХ НА NETLIFY FUNCTIONS
+// ======================================================
+
+/**
+ * Обрабатывает отправку формы регистрации
+ */
+
+const handleRegistration = async (event) => {
+    event.preventDefault();
+
+    // Получение данных
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+    const referralCode = document.getElementById('reg-referral-code').value.trim();
+
+    // Валидация
+    if (!name || !email || !password || password.length < 6) {
+        alert('Пожалуйста, заполните Имя, Email и Пароль (мин. 6 символов).')
+        return
+    }
+
+    // Блокируем кнопку
+    const submitButton = registrationForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Обработка...';
+
+    try {
+        const response = await fetch('/.netlify/functions/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, referralCode })
+        })
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert(`✅ ${result.message}`);
+            registrationForm.reset();
+            closePopup(popupRegistration);
+        } else {
+            alert(`❌ Ошибка регистрации: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Ошибка сети при регистрации:', error);
+        alert('❌ Произошла ошибка. Проверьте подключение.');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Зарегистрироваться';
+    }
+}
+
+/**
+ * Обрабатывает отправку формы входа (логина)
+ */
+
+const handleLogin = async (event) => {
+    event.preventDefault();
+
+    // Получаем данные
+    const name = document.getElementById('login-name').value.trim();
+    const password = document.getElementById('login-password').value;
+
+    // Валидация
+    if (!name || !password) {
+        alert('Пожалуйста, введите Имя и Пароль.');
+        return
+    }
+
+    // Блокируем кнопку
+    const submitButton = loginForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = "Проверка..."
+
+    try {
+        const response = await fetch('/.netlify/functions/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, password }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(`🎉 Добро пожаловать, ${result.name}! Ваша скидка: ${result.discount}%`);
+
+            // Сохранение состояния входа
+            localStorage.setItem('userDiscount', result.discount);
+            localStorage.setItem('userName', result.name);
+
+            loginForm.reset();
+            closePopup(popupLogin);
+        } else {
+            alert(`❌ Ошибка входа: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Ошибка сети при входе:', error);
+        alert('❌ Произошла ошибка. Проверьте подключение.');        
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Войти";
+    }
+}
+
+// ======================================================
+// НОВЫЙ БЛОК: ПРИВЯЗКА СОБЫТИЙ ОТПРАВКИ ФОРМ
+// ======================================================
+
+registrationForm.addEventListener('submit', handleRegistration);
+loginForm.addEventListener('submit', handleLogin);
