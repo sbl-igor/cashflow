@@ -210,7 +210,8 @@
 
 @media (max-width: 500px) {
     .header__container .logo {
-        width: 96px;
+        width: 64px;
+        height: 10px;
         margin-top: 5px;
     }
 }
