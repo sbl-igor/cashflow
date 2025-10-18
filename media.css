@@ -82,15 +82,15 @@
     .pickup-img {
         width: 300px;
     }
-}
-
-@media (max-width: 700px) {
     .header__nav .course, .header__nav .contacthref {
         display: none;
     }
+    .header__nav li+li {
+        margin-left: 25px;
+    }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     /* 1. Главный список: размещаем два основных элемента по краям одной строки */
     .list-auth-authenticated {
         flex-wrap: nowrap; /* Важно: не даем элементам переноситься */
@@ -121,6 +121,15 @@
     .li-logout-btn {
         flex: 0 0 auto; /* Фиксированный размер, не растет и не сжимается */
         margin-left: auto; /* Дополнительно гарантируем прижатие вправо (если нужно) */
+    }
+    button.language-btn {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+    }
+    button.language-btn img {
+        width: 30px;
+        height: 30px;
     }
 }
 
