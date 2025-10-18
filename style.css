@@ -292,6 +292,32 @@ ul.list-reg {
 
 /* REGISTRATION END */
 
+/* New css-styles for registration */
+
+.reg-list-main, .list-auth-unauthenticated li, .reg-list-main .list-auth-authenticated li  {
+    font-size: 14px;
+    color: #fff;
+}
+
+#btn-login, #btn-registration, #btn-logout {
+    color: #fff;
+}
+
+.course a, .contacthref a {
+    font-size: 12px;
+    color: #fff;
+}
+
+.reg-list-main li.course {
+    margin-left: 40px;
+}
+
+.reg-list-main li {
+    font-size: 12px;
+}
+
+.referral-info 
+
 /* --------------- Main --------------- */
 
 /* --------------- Welcome --------------- */
@@ -499,10 +525,9 @@ ul.list-reg {
 
 .services .currency-rates .rates-list li.course {
     white-space: nowrap;
-    /* margin-bottom: 30px; */
     padding: 20px 0;
     border-bottom: 1px solid #c9c8c8;
-    font-size: 22px;
+    /* font-size: 22px; */
 }
 
 .services .currency-rates .rates-list li:last-child {
