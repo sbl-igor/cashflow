@@ -104,7 +104,7 @@ function updateAuthUI() {
         authUserNameSpan.textContent = userName;
         authReferralCodeSpan.textContent = referralCode || 'Нет';
         // Убедимся, что скидка всегда отображается
-        authUserDiscountSpan.textContent = `(Скидка: ${discount || 0}%)`;
+        authUserDiscountSpan.textContent = `Скидка: ${discount || 0}%`;
     } else if (authAuthenticatedList && authUnauthenticatedList) {
         // Пользователь не авторизован: показываем Вход/Регистрацию, скрываем данные
         authUnauthenticatedList.style.display = 'flex'; // Показываем как flex
