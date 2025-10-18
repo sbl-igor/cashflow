@@ -295,7 +295,7 @@ ul.list-reg {
 /* New css-styles for registration */
 
 .reg-list-main, .list-auth-unauthenticated li, .reg-list-main .list-auth-authenticated li  {
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
 }
 
