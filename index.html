@@ -17,13 +17,9 @@
         <div class="container header__container">
             <a href="index.html"><img src="./img/cashflow.png" class="logo"></a>
             <nav class="header__nav">
-
-                    <!-- -------------- -->
-                    <!-- Form of registration  -->
-                    <!-- -------------- -->
-
                 <ul class="reg-list-main">
-                    <ul class="list-reg">
+                    
+                    <ul class="list-auth-unauthenticated">
                         <li>
                             <button id="btn-registration">Регистрация</button>
                         </li>
@@ -32,9 +28,18 @@
                         </li>
                     </ul>
 
-                    <!-- -------------- -->
-                    <!-- Form of registration  -->
-                    <!-- -------------- -->
+                    <ul class="list-auth-authenticated" style="display: none;">
+                        <li id="user-greeting">
+                            Привет, <span id="auth-user-name"></span>!
+                        </li>
+                        <li id="referral-info" class="referral-code-display">
+                            Код: <span id="auth-referral-code" style="font-weight: bold;"></span>
+                            <span id="auth-user-discount" style="font-size: 0.8em; margin-left: 5px;">(Скидка: 0%)</span>
+                        </li>
+                        <li>
+                            <button id="btn-logout">Выход</button>
+                        </li>
+                    </ul>
 
                     <li class="course"><a href="#currency-rates">Узнать курс</a></li>
                     <li class="contacthref"><a href="#footer__social">Контакты</a></li>
@@ -42,7 +47,6 @@
                         <img src="./img/icons-idiomas/ru.png" alt="ru">
                     </a></button></li>
                 </ul>
-
             </nav>
         </div>
     </header>

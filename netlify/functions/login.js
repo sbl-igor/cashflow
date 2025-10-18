@@ -56,18 +56,22 @@ exports.handler = async (event) => {
         }
 
         // 3. Сравнение пароля (Используем bcrypt.compare)
-        // Сравниваем введенный пароль с хэшем, сохраненным в столбце 'Хэш_Пароля'
         const passwordMatch = await bcrypt.compare(password, user.Хэш_Пароля);
 
         if (passwordMatch) {
-            // Вход успешен: возвращаем данные пользователя
+            // 4. Вход успешен: возвращаем данные пользователя, включая уникальный реферальный код
+            // Используем оператор || '' для гарантии, что код не будет undefined, если поле пустое
+            const uniqueCode = user.Уникальный_Код || ''; 
+
             return {
                 statusCode: 200,
                 body: JSON.stringify({ 
                     message: 'Вход выполнен.', 
                     name: user.Имя,
-                    // Возвращаем скидку, преобразовав ее в число (для фронтенда)
-                    discount: parseInt(user.Скидка_Процент) || 0
+                    // Возвращаем скидку
+                    discount: parseInt(user.Скидка_Процент) || 0,
+                    // НОВОЕ: Возвращаем уникальный код пользователя
+                    referralCode: uniqueCode 
                 }),
             };
         } else {

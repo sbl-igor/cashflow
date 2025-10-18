@@ -15,6 +15,12 @@ const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 const SALT_ROUNDS = 10; // Рекомендуемая сложность для bcrypt
 const DISCOUNT_AMOUNT = 5; // Фиксированная однократная скидка 5%
 
+// --- НОВАЯ ФУНКЦИЯ: ГЕНЕРАЦИЯ УНИКАЛЬНОГО КОДА ---
+function generateUniqueCode() {
+    // Генерируем 8-символьный код из случайных букв и цифр (например, K3R5A9X0)
+    return Math.random().toString(36).substring(2, 10).toUpperCase();
+}
+
 exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') {
         return { statusCode: 405, body: 'Method Not Allowed' };
@@ -53,51 +59,66 @@ exports.handler = async (event) => {
             };
         }
         
-        // 3. Хэширование пароля (КРИТИЧЕСКИЙ ШАГ)
+        // 3. Хэширование пароля
         const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
         
-        // 4. Логика начисления однократной скидки Рефереру
-        let referrerFound = false;
-        let referrerDiscountMessage = "";
+        // 4. ГЕНЕРАЦИЯ УНИКАЛЬНОГО КОДА для нового пользователя
+        let uniqueReferralCode;
+        let codeExists = true;
+        // Генерируем, пока не найдем уникальный код
+        while(codeExists) {
+            uniqueReferralCode = generateUniqueCode();
+            codeExists = rows.some(row => row.Уникальный_Код === uniqueReferralCode);
+        }
 
-        if (referralCode) {
-            const referrerIndex = rows.findIndex(row => row.Имя === referralCode);
+        // 5. Логика начисления однократной скидки Рефереру
+        let referrerDiscountMessage = "";
+        const cleanReferralCode = referralCode ? referralCode.toUpperCase().trim() : '';
+
+        if (cleanReferralCode) {
+            // Ищем Реферера по его УНИКАЛЬНОМУ КОДУ (Убедитесь, что столбец назван 'Уникальный_Код')
+            const referrerRow = rows.find(row => row.Уникальный_Код === cleanReferralCode);
             
-            if (referrerIndex !== -1) {
-                const referrerRow = rows[referrerIndex];
-                // Убедимся, что поле "Скидка_Процент" существует в вашей таблице
+            if (referrerRow) {
+                // Преобразуем скидку в число, по умолчанию 0
                 let currentDiscount = parseInt(referrerRow.Скидка_Процент) || 0; 
                 
                 // Начисляем 5% только если скидка еще 0%
                 if (currentDiscount === 0) {
                     referrerRow.Скидка_Процент = DISCOUNT_AMOUNT; 
-                    await referrerRow.save(); 
+                    await referrerRow.save(); // Сохраняем изменение в таблице
                     
-                    referrerFound = true;
-                    referrerDiscountMessage = `Пользователю ${referralCode} начислена однократная скидка ${DISCOUNT_AMOUNT}%.`;
+                    referrerDiscountMessage = `Ваш Реферер (${cleanReferralCode}) получил однократную скидку ${DISCOUNT_AMOUNT}%.`;
                 } else {
-                    referrerFound = true;
-                    referrerDiscountMessage = `Пользователь ${referralCode} уже имеет скидку.`;
+                    referrerDiscountMessage = `Реферер (${cleanReferralCode}) уже имеет скидку.`;
                 }
+            } else {
+                referrerDiscountMessage = `Указанный реферальный код не найден.`;
             }
         }
         
-        // 5. Сохранение данных НОВОГО пользователя
+        // 6. Сохранение данных НОВОГО пользователя
         await sheet.addRow({
             'Имя': name,
             'Email': email,
-            'Хэш_Пароля': passwordHash, // Сохраняем хэш
+            'Хэш_Пароля': passwordHash,
             'Скидка_Процент': 0, // Начальная скидка Реферала всегда 0%
-            'Пригласил_Код': referralCode || '', 
+            'Уникальный_Код': uniqueReferralCode, // <-- ЛИЧНЫЙ КОД нового пользователя
+            'Пригласил_Код': cleanReferralCode, // <-- КОД, который он использовал
         });
 
-        const statusMessage = referrerFound 
-            ? `Регистрация успешна. ${referrerDiscountMessage}`
-            : `Регистрация успешна.`;
+        // 7. Формирование ответа клиенту
+        const successMessage = referrerDiscountMessage 
+            ? `Регистрация успешна! Ваш уникальный код: ${uniqueReferralCode}. ${referrerDiscountMessage}`
+            : `Регистрация успешна! Ваш уникальный код: ${uniqueReferralCode}.`;
 
         return {
             statusCode: 201, 
-            body: JSON.stringify({ message: statusMessage, discount: 0 }), 
+            body: JSON.stringify({ 
+                message: successMessage, 
+                discount: 0,
+                referralCode: uniqueReferralCode // Возвращаем код новому пользователю
+            }), 
         };
 
     } catch (error) {
