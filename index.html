@@ -29,14 +29,16 @@
                     </ul>
 
                     <ul class="list-auth-authenticated" style="display: none;">
-                        <li id="user-greeting">
-                            Привет, <span id="auth-user-name"></span>!
+                        <li class="li-user-info">
+                            <div id="user-greeting">
+                                Привет, <span id="auth-user-name"></span>!
+                            </div>
+                            <div id="referral-info" class="referral-code-display">
+                                Код: <span id="auth-referral-code" style="font-weight: bold;"></span>
+                                <span id="auth-user-discount" style="font-size: 0.8em; margin-left: 5px;">(Скидка: 0%)</span>
+                            </div>
                         </li>
-                        <li id="referral-info" class="referral-code-display">
-                            Код: <span id="auth-referral-code" style="font-weight: bold;"></span>
-                            <span id="auth-user-discount" style="font-size: 0.8em; margin-left: 5px;">(Скидка: 0%)</span>
-                        </li>
-                        <li>
+                        <li class="li-logout-btn">
                             <button id="btn-logout">Выход</button>
                         </li>
                     </ul>
