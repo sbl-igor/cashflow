@@ -146,9 +146,21 @@ const handleRegistration = async (event) => {
     const referralCode = document.getElementById('reg-referral-code').value.trim();
 
     // Валидация
+    // Валидация - new!
     if (!name || !email || !password || password.length < 6) {
         alert('Пожалуйста, заполните Имя, Email и Пароль (мин. 6 символов).')
         return
+    }
+
+    // !!! НОВЫЕ ПРОВЕРКИ ДЛИНЫ !!!
+    if (name.length > 12) {
+        alert('Имя пользователя не должно превышать 12 символов.');
+        return;
+    }
+
+    if (password.length > 16) {
+        alert('Пароль не должен превышать 16 символов.');
+        return;
     }
 
     // Блокируем кнопку
@@ -199,9 +211,21 @@ const handleLogin = async (event) => {
     const password = document.getElementById('login-password').value;
 
     // Валидация
+    // Валидация - new
     if (!name || !password) {
         alert('Пожалуйста, введите Имя и Пароль.');
         return
+    }
+
+    // !!! НОВЫЕ ПРОВЕРКИ ДЛИНЫ !!!
+    if (name.length > 12) {
+        alert('Имя пользователя не должно превышать 12 символов.');
+        return;
+    }
+
+    if (password.length > 16) {
+        alert('Пароль не должен превышать 16 символов.');
+        return;
     }
 
     // Блокируем кнопку

@@ -36,6 +36,21 @@ exports.handler = async (event) => {
                 body: JSON.stringify({ message: 'Имя, Email и Пароль (мин. 6 символов) обязательны.' }) 
             };
         }
+
+        // !!! НОВЫЕ СЕРВЕРНЫЕ ПРОВЕРКИ ДЛИНЫ !!!
+        if (name.length > 12) {
+            return { 
+                statusCode: 400, 
+                body: JSON.stringify({ message: 'Имя пользователя не должно превышать 12 символов.' }) 
+            };
+        }
+
+        if (password.length > 16) {
+            return { 
+                statusCode: 400, 
+                body: JSON.stringify({ message: 'Пароль не должен превышать 16 символов.' }) 
+            };
+        }
         
         // --- Настройка доступа к Google Sheets ---
         if (!PRIVATE_KEY) {
@@ -61,6 +76,20 @@ exports.handler = async (event) => {
         
         // 3. Хэширование пароля
         const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
+
+        const now = new Date();
+        const formattedDateTime = now.toLocaleString('ru-RU', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZone: 'America/Argentina/Buenos_Aires',
+            timeZoneName: 'short'
+        });
+        
         
         // 4. ГЕНЕРАЦИЯ УНИКАЛЬНОГО КОДА для нового пользователя
         let uniqueReferralCode;
@@ -105,6 +134,7 @@ exports.handler = async (event) => {
             'Скидка_Процент': 0, // Начальная скидка Реферала всегда 0%
             'Уникальный_Код': uniqueReferralCode, // <-- ЛИЧНЫЙ КОД нового пользователя
             'Пригласил_Код': cleanReferralCode, // <-- КОД, который он использовал
+            'Дата_Создания': formattedDateTime, 
         });
 
         // 7. Формирование ответа клиенту

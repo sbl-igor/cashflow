@@ -29,6 +29,21 @@ exports.handler = async (event) => {
                 body: JSON.stringify({ message: 'Имя и Пароль обязательны.' }) 
             };
         }
+
+        // !!! НОВЫЕ СЕРВЕРНЫЕ ПРОВЕРКИ ДЛИНЫ !!!
+        if (name.length > 12) {
+            return { 
+                statusCode: 400, 
+                body: JSON.stringify({ message: 'Имя пользователя не должно превышать 12 символов.' }) 
+            };
+        }
+
+        if (password.length > 16) {
+            return { 
+                statusCode: 400, 
+                body: JSON.stringify({ message: 'Пароль не должен превышать 16 символов.' }) 
+            };
+        }
         
         // --- Настройка доступа к Google Sheets ---
         if (!PRIVATE_KEY) {
