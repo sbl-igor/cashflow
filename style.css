@@ -84,6 +84,7 @@ p {
 }
 
 .popup-content .lang-btn {
+    width: 80%;
     border: 1px solid #FFF;
     color: #FFF;
     border-radius: 10px;
@@ -91,6 +92,16 @@ p {
     margin: 10px auto;
     padding: 10px 20px;
     cursor: pointer;
+    transition: all 0.5s;
+}
+
+#form-login button, #form-registration button {
+    transition: all 0.5s;
+}
+
+.popup-content .lang-btn:hover, #form-login button:hover, #form-registration button:hover {
+    background-color: rgb(220, 219, 219);
+    color: #5d5d5d;
 }
 
 .popup-content .close-popup {
