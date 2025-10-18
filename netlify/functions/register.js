@@ -75,21 +75,7 @@ exports.handler = async (event) => {
         }
         
         // 3. Хэширование пароля
-        const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
-
-        const now = new Date();
-        const formattedDateTime = now.toLocaleString('ru-RU', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-            timeZone: 'America/Argentina/Buenos_Aires',
-            timeZoneName: 'short'
-        });
-        
+        const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);       
         
         // 4. ГЕНЕРАЦИЯ УНИКАЛЬНОГО КОДА для нового пользователя
         let uniqueReferralCode;
@@ -127,15 +113,20 @@ exports.handler = async (event) => {
         }
         
         // 6. Сохранение данных НОВОГО пользователя
+        await sheet.loadHeaderRow();
+
+        const formattedDateTime = new Date().toISOString(); // ISO формат (надёжно)
+
         await sheet.addRow({
             'Имя': name,
             'Email': email,
             'Хэш_Пароля': passwordHash,
-            'Скидка_Процент': 0, // Начальная скидка Реферала всегда 0%
-            'Уникальный_Код': uniqueReferralCode, // <-- ЛИЧНЫЙ КОД нового пользователя
-            'Пригласил_Код': cleanReferralCode, // <-- КОД, который он использовал
-            'Дата_Создания': formattedDateTime, 
+            'Скидка_Процент': 0,
+            'Уникальный_Код': uniqueReferralCode,
+            'Пригласил_Код': cleanReferralCode,
+            'Дата_Создания': formattedDateTime,
         });
+
 
         // 7. Формирование ответа клиенту
         const successMessage = referrerDiscountMessage 
