@@ -55,9 +55,27 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Пароль';
             document.getElementById('reg-referral-code').placeholder = 'Реферальный код (необязательно)';
             
-            document.getElementById('user-greeting').innerHTML = 'Привет, <span id="auth-user-name"></span>!';
-            document.getElementById('referral-info').innerHTML = 'Код: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Скидка: 0%</span>';
+
+            // Получаем текущие динамические данные (они должны быть в <span>)
+            // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
+            const currentName = document.getElementById('auth-user-name').textContent || '';
+            const currentCode = document.getElementById('auth-referral-code').textContent || '';
+            const currentDiscount = document.getElementById('auth-user-discount').textContent.replace('Скидка: ', '') || '0%';
+            
+            // --- ИСПРАВЛЕНИЕ: ПЕРЕЗАПИСЬ С СОХРАНЕНИЕМ ДАННЫХ ---
+            
+            // 1. Приветствие
+            // Перезаписываем весь HTML, но вставляем сохраненное имя обратно в <span>
+            document.getElementById('user-greeting').innerHTML = `Привет, <span id="auth-user-name">${currentName}</span>!`;
+            
+            // 2. Реферальная информация
+            // Перезаписываем весь HTML, но вставляем сохраненный код и скидку обратно
+            document.getElementById('referral-info').innerHTML = 
+                `Код: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Скидка: ${currentDiscount}</span>`;
+                
+            // 3. Кнопка выхода (просто textContent)
             document.getElementById('btn-logout').textContent = 'Выход';
+
 
             document.querySelector('.popup-content h3').textContent = 'Выберите язык';
             // nav 
@@ -140,9 +158,25 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-email').placeholder = 'Email';
             document.getElementById('reg-password').placeholder = 'Password';
             document.getElementById('reg-referral-code').placeholder = 'Referral code (optional)';
+
+            // Получаем текущие динамические данные (они должны быть в <span>)
+            // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
+            const currentName = document.getElementById('auth-user-name').textContent || '';
+            const currentCode = document.getElementById('auth-referral-code').textContent || '';
+            const currentDiscount = document.getElementById('auth-user-discount').textContent.replace('Скидка: ', '') || '0%';
             
-            document.getElementById('user-greeting').innerHTML = 'Hello, <span id="auth-user-name"></span>!';
-            document.getElementById('referral-info').innerHTML = 'Code: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Discount: 0%</span>';
+            // --- ИСПРАВЛЕНИЕ: ПЕРЕЗАПИСЬ С СОХРАНЕНИЕМ ДАННЫХ ---
+            
+            // 1. Приветствие
+            // Перезаписываем весь HTML, но вставляем сохраненное имя обратно в <span>
+            document.getElementById('user-greeting').innerHTML = `Hello, <span id="auth-user-name">${currentName}</span>!`;
+            
+            // 2. Реферальная информация
+            // Перезаписываем весь HTML, но вставляем сохраненный код и скидку обратно
+            document.getElementById('referral-info').innerHTML = 
+                `Code: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Discount: ${currentDiscount}</span>`;
+                
+            // 3. Кнопка выхода (просто textContent)
             document.getElementById('btn-logout').textContent = 'Log out';
 
 
@@ -228,8 +262,25 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Contraseña';
             document.getElementById('reg-referral-code').placeholder = 'Código de referencia (opcional)';
 
-            document.getElementById('user-greeting').innerHTML = 'Hola, <span id="auth-user-name"></span>!';
-            document.getElementById('referral-info').innerHTML = 'Código: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Descuento: 0%</span>';
+
+            // Получаем текущие динамические данные (они должны быть в <span>)
+            // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
+            const currentName = document.getElementById('auth-user-name').textContent || '';
+            const currentCode = document.getElementById('auth-referral-code').textContent || '';
+            const currentDiscount = document.getElementById('auth-user-discount').textContent.replace('Скидка: ', '') || '0%';
+            
+            // --- ИСПРАВЛЕНИЕ: ПЕРЕЗАПИСЬ С СОХРАНЕНИЕМ ДАННЫХ ---
+            
+            // 1. Приветствие
+            // Перезаписываем весь HTML, но вставляем сохраненное имя обратно в <span>
+            document.getElementById('user-greeting').innerHTML = `Hola, <span id="auth-user-name">${currentName}</span>!`;
+            
+            // 2. Реферальная информация
+            // Перезаписываем весь HTML, но вставляем сохраненный код и скидку обратно
+            document.getElementById('referral-info').innerHTML = 
+                `Código: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Descuento: ${currentDiscount}</span>`;
+                
+            // 3. Кнопка выхода (просто textContent)
             document.getElementById('btn-logout').textContent = 'Finalizar';
 
 
@@ -315,9 +366,26 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Senha';
             document.getElementById('reg-referral-code').placeholder = 'Código de referência (opcional)';
 
-            document.getElementById('user-greeting').innerHTML = 'Olá, <span id="auth-user-name"></span>!';
-            document.getElementById('referral-info').innerHTML = 'Código: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Desconto: 0%</span>';
+            // Получаем текущие динамические данные (они должны быть в <span>)
+            // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
+            const currentName = document.getElementById('auth-user-name').textContent || '';
+            const currentCode = document.getElementById('auth-referral-code').textContent || '';
+            const currentDiscount = document.getElementById('auth-user-discount').textContent.replace('Скидка: ', '') || '0%';
+            
+            // --- ИСПРАВЛЕНИЕ: ПЕРЕЗАПИСЬ С СОХРАНЕНИЕМ ДАННЫХ ---
+            
+            // 1. Приветствие
+            // Перезаписываем весь HTML, но вставляем сохраненное имя обратно в <span>
+            document.getElementById('user-greeting').innerHTML = `Olá, <span id="auth-user-name">${currentName}</span>!`;
+            
+            // 2. Реферальная информация
+            // Перезаписываем весь HTML, но вставляем сохраненный код и скидку обратно
+            document.getElementById('referral-info').innerHTML = 
+                `Código: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Desconto: ${currentDiscount}</span>`;
+                
+            // 3. Кнопка выхода (просто textContent)
             document.getElementById('btn-logout').textContent = 'Terminar';
+            
 
             document.querySelector('.popup-content h3').textContent = 'Selecionar idioma';
 
