@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //     `Код: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Скидка: ${currentDiscount}</span>`;
                 
             // // 3. Кнопка выхода (просто textContent)
-            // document.getElementById('btn-logout').textContent = 'Выход';
+            document.getElementById('btn-logout').textContent = 'Выход';
 
 
             document.querySelector('.popup-content h3').textContent = 'Выберите язык';
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //     `Code: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Discount: ${currentDiscount}</span>`;
                 
             // // 3. Кнопка выхода (просто textContent)
-            // document.getElementById('btn-logout').textContent = 'Log out';
+            document.getElementById('btn-logout').textContent = 'Log out';
 
 
             document.querySelector('.popup-content h3').textContent = 'Select Language';
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //     `Código: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Descuento: ${currentDiscount}</span>`;
                 
             // // 3. Кнопка выхода (просто textContent)
-            // document.getElementById('btn-logout').textContent = 'Finalizar';
+            document.getElementById('btn-logout').textContent = 'Finalizar';
 
 
             document.querySelector('.popup-content h3').textContent = 'Seleccionar idioma';
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //     `Código: <span id="auth-referral-code">${currentCode}</span><br><span id="auth-user-discount">Desconto: ${currentDiscount}</span>`;
                 
             // // 3. Кнопка выхода (просто textContent)
-            // document.getElementById('btn-logout').textContent = 'Terminar';
+            document.getElementById('btn-logout').textContent = 'Terminar';
             
 
             document.querySelector('.popup-content h3').textContent = 'Selecionar idioma';

@@ -102,9 +102,9 @@ function updateAuthUI() {
         authAuthenticatedList.style.display = 'flex'; // Показываем как flex для корректного отображения в хедере
 
         authUserNameSpan.textContent = userName;
-        authReferralCodeSpan.textContent = referralCode || 'Нет';
+        authReferralCodeSpan.textContent = referralCode || 'None'; // Перевод 'Нет'
         // Убедимся, что скидка всегда отображается
-        authUserDiscountSpan.textContent = `Скидка: ${discount || 0}%`;
+        authUserDiscountSpan.textContent = `Discount: ${discount || 0}%`;
     } else if (authAuthenticatedList && authUnauthenticatedList) {
         // Пользователь не авторизован: показываем Вход/Регистрацию, скрываем данные
         authUnauthenticatedList.style.display = 'flex'; // Показываем как flex
@@ -119,7 +119,7 @@ const handleLogout = () => {
     localStorage.removeItem('userName');
     localStorage.removeItem('userReferralCode');
     localStorage.removeItem('userDiscount');
-    alert('Вы вышли из аккаунта.');
+    alert('You have successfully logged out.'); // Перевод
     updateAuthUI(); // Обновляем UI после выхода
 }
 
@@ -146,27 +146,26 @@ const handleRegistration = async (event) => {
     const referralCode = document.getElementById('reg-referral-code').value.trim();
 
     // Валидация
-    // Валидация - new!
     if (!name || !email || !password || password.length < 6) {
-        alert('Пожалуйста, заполните Имя, Email и Пароль (мин. 6 символов).')
+        alert('Please fill in Name, Email, and Password (min 6 characters).') // Перевод
         return
     }
 
     // !!! НОВЫЕ ПРОВЕРКИ ДЛИНЫ !!!
     if (name.length > 10) {
-        alert('Имя пользователя не должно превышать 12 символов.');
+        alert('Username must not exceed 12 characters.'); // Перевод
         return;
     }
 
     if (password.length > 16) {
-        alert('Пароль не должен превышать 16 символов.');
+        alert('Password must not exceed 16 characters.'); // Перевод
         return;
     }
 
     // Блокируем кнопку
     const submitButton = registrationForm.querySelector('button[type="submit"]');
     submitButton.disabled = true;
-    submitButton.textContent = 'Обработка...';
+    submitButton.textContent = 'Processing...'; // Перевод
 
     try {
         const response = await fetch('/.netlify/functions/register', {
@@ -178,7 +177,7 @@ const handleRegistration = async (event) => {
         const result = await response.json();
 
         if (response.ok) {
-            alert(`✅ ${result.message}`);
+            alert(`✅ Registration successful!`); // Перевод. Используем общее сообщение.
             
             // Сохранение состояния входа и реферальных данных
             localStorage.setItem('userName', name); // Сохраняем имя после успешной регистрации
@@ -189,14 +188,14 @@ const handleRegistration = async (event) => {
             closePopup(popupRegistration);
             updateAuthUI(); // !!! Обновляем UI после успешной регистрации
         } else {
-            alert(`❌ Ошибка регистрации: ${result.message}`);
+            alert(`❌ Registration error: ${result.message}`); // Перевод
         }
     } catch (error) {
-        console.error('Ошибка сети при регистрации:', error);
-        alert('❌ Произошла ошибка. Проверьте подключение.');
+        console.error('Network error during registration:', error); // Перевод
+        alert('❌ An error occurred. Please check your connection.'); // Перевод
     } finally {
         submitButton.disabled = false;
-        submitButton.textContent = 'Зарегистрироваться';
+        submitButton.textContent = 'Register'; // Перевод
     }
 }
 
@@ -211,27 +210,26 @@ const handleLogin = async (event) => {
     const password = document.getElementById('login-password').value;
 
     // Валидация
-    // Валидация - new
     if (!name || !password) {
-        alert('Пожалуйста, введите Имя и Пароль.');
+        alert('Please enter your Name and Password.'); // Перевод
         return
     }
 
     // !!! НОВЫЕ ПРОВЕРКИ ДЛИНЫ !!!
     if (name.length > 10) {
-        alert('Имя пользователя не должно превышать 12 символов.');
+        alert('Username must not exceed 12 characters.'); // Перевод
         return;
     }
 
     if (password.length > 16) {
-        alert('Пароль не должен превышать 16 символов.');
+        alert('Password must not exceed 16 characters.'); // Перевод
         return;
     }
 
     // Блокируем кнопку
     const submitButton = loginForm.querySelector('button[type="submit"]');
     submitButton.disabled = true;
-    submitButton.textContent = "Проверка..."
+    submitButton.textContent = "Checking..." // Перевод
 
     try {
         const response = await fetch('/.netlify/functions/login', {
@@ -242,7 +240,7 @@ const handleLogin = async (event) => {
 
         const result = await response.json();
         if (response.ok) {
-            alert(`🎉 Добро пожаловать, ${result.name}! Ваша скидка: ${result.discount}%`);
+            alert(`🎉 Welcome, ${result.name}! Your discount: ${result.discount}%`); // Перевод
 
             // Сохранение состояния входа
             localStorage.setItem('userDiscount', result.discount);
@@ -253,14 +251,14 @@ const handleLogin = async (event) => {
             closePopup(popupLogin);
             updateAuthUI(); // !!! Обновляем UI после успешного входа
         } else {
-            alert(`❌ Ошибка входа: ${result.message}`);
+            alert(`❌ Login error: ${result.message}`); // Перевод
         }
     } catch (error) {
-        console.error('Ошибка сети при входе:', error);
-        alert('❌ Произошла ошибка. Проверьте подключение.');        
+        console.error('Network error during login:', error); // Перевод
+        alert('❌ An error occurred. Please check your connection.'); // Перевод      
     } finally {
         submitButton.disabled = false;
-        submitButton.textContent = "Войти";
+        submitButton.textContent = "Log In"; // Перевод
     }
 }
 

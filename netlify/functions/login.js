@@ -5,16 +5,14 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const bcrypt = require('bcryptjs');
 
 // --- Конфигурация (Ваши переменные окружения Netlify) ---
-// Эти переменные должны быть настроены в настройках Netlify (Environment Variables)
 const SPREADSHEET_ID = process.env.GOOGLE_SHEET_ID;
 const SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-// Важно: Private Key должен быть правильно отформатирован для работы в Netlify Functions
 const PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') : null;
 
 const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
 exports.handler = async (event) => {
-    // Проверяем, что метод запроса - POST
+    // Check if the request method is POST
     if (event.httpMethod !== 'POST') {
         return { statusCode: 405, body: 'Method Not Allowed' };
     }
@@ -22,33 +20,33 @@ exports.handler = async (event) => {
     try {
         const { name, password } = JSON.parse(event.body);
 
-        // 1. Валидация входных данных
+        // 1. Input Data Validation (Server-side)
         if (!name || !password) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Имя и Пароль обязательны.' }) 
+                body: JSON.stringify({ message: 'Name and Password are required.' }) // Translated
             };
         }
 
-        // !!! НОВЫЕ СЕРВЕРНЫЕ ПРОВЕРКИ ДЛИНЫ !!!
+        // !!! NEW SERVER-SIDE LENGTH CHECKS !!!
         if (name.length > 10) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Имя пользователя не должно превышать 12 символов.' }) 
+                body: JSON.stringify({ message: 'Username must not exceed 10 characters.' }) // Translated
             };
         }
 
         if (password.length > 16) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Пароль не должен превышать 16 символов.' }) 
+                body: JSON.stringify({ message: 'Password must not exceed 16 characters.' }) // Translated
             };
         }
         
-        // --- Настройка доступа к Google Sheets ---
+        // --- Google Sheets Access Setup ---
         if (!PRIVATE_KEY) {
             console.error("GOOGLE_PRIVATE_KEY is missing.");
-            return { statusCode: 500, body: JSON.stringify({ message: 'Серверная ошибка конфигурации (Auth).' }) };
+            return { statusCode: 500, body: JSON.stringify({ message: 'Server configuration error (Auth).' }) }; // Translated
         }
         await doc.useServiceAccountAuth({
             client_email: SERVICE_ACCOUNT_EMAIL,
@@ -59,49 +57,50 @@ exports.handler = async (event) => {
         const sheet = doc.sheetsByIndex[0]; 
         const rows = await sheet.getRows();
 
-        // 2. Поиск пользователя по Имени
+        // 2. Find user by Name
         const user = rows.find(row => row.Имя === name);
         
         if (!user) {
-            // Безопасное сообщение об ошибке: не даем подсказок, существует ли имя
+            // Safe error message: do not reveal if the name exists
             return { 
                 statusCode: 401, 
-                body: JSON.stringify({ message: 'Неверное имя или пароль.' }) 
+                body: JSON.stringify({ message: 'Incorrect name or password.' }) // Translated
             };
         }
 
-        // 3. Сравнение пароля (Используем bcrypt.compare)
+        // 3. Password comparison (using bcrypt.compare)
         const passwordMatch = await bcrypt.compare(password, user.Хэш_Пароля);
 
         if (passwordMatch) {
-            // 4. Вход успешен: возвращаем данные пользователя, включая уникальный реферальный код
-            // Используем оператор || '' для гарантии, что код не будет undefined, если поле пустое
+            // 4. Login successful: return user data, including unique referral code
+            // Use || '' to ensure the code is not undefined if the field is empty
+            // NOTE: Make sure your Google Sheet has a column named 'Уникальный_Код'
             const uniqueCode = user.Уникальный_Код || ''; 
 
             return {
                 statusCode: 200,
                 body: JSON.stringify({ 
-                    message: 'Вход выполнен.', 
+                    message: 'Login successful.', // Translated
                     name: user.Имя,
-                    // Возвращаем скидку
+                    // Return discount
                     discount: parseInt(user.Скидка_Процент) || 0,
-                    // НОВОЕ: Возвращаем уникальный код пользователя
+                    // NEW: Return the user's unique code
                     referralCode: uniqueCode 
                 }),
             };
         } else {
-            // Пароль не совпал
+            // Password mismatch
             return { 
                 statusCode: 401, 
-                body: JSON.stringify({ message: 'Неверное имя или пароль.' }) 
+                body: JSON.stringify({ message: 'Incorrect name or password.' }) // Translated
             };
         }
 
     } catch (error) {
-        console.error('Ошибка входа:', error);
+        console.error('Login error:', error); // Translated
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Внутренняя ошибка сервера. Проверьте логи Netlify.' }),
+            body: JSON.stringify({ message: 'Internal server error. Check Netlify logs.' }), // Translated
         };
     }
 };

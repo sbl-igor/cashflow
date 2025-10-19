@@ -12,12 +12,12 @@ const SERVICE_ACCOUNT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY ? process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') : null;
 
 const doc = new GoogleSpreadsheet(SPREADSHEET_ID); 
-const SALT_ROUNDS = 10; // Рекомендуемая сложность для bcrypt
-const DISCOUNT_AMOUNT = 5; // Фиксированная однократная скидка 5%
+const SALT_ROUNDS = 10; // Recommended complexity for bcrypt
+const DISCOUNT_AMOUNT = 5; // Fixed one-time discount of 5%
 
-// --- НОВАЯ ФУНКЦИЯ: ГЕНЕРАЦИЯ УНИКАЛЬНОГО КОДА ---
+// --- NEW FUNCTION: GENERATE UNIQUE CODE ---
 function generateUniqueCode() {
-    // Генерируем 8-символьный код из случайных букв и цифр (например, K3R5A9X0)
+    // Generates an 8-character code from random letters and numbers (e.g., K3R5A9X0)
     return Math.random().toString(36).substring(2, 10).toUpperCase();
 }
 
@@ -29,32 +29,32 @@ exports.handler = async (event) => {
     try {
         const { name, email, password, referralCode } = JSON.parse(event.body);
 
-        // 1. Серверная валидация
+        // 1. Server-side validation
         if (!name || !email || !password || password.length < 6) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Имя, Email и Пароль (мин. 6 символов) обязательны.' }) 
+                body: JSON.stringify({ message: 'Name, Email, and Password (min 6 characters) are required.' }) // Перевод
             };
         }
 
-        // !!! НОВЫЕ СЕРВЕРНЫЕ ПРОВЕРКИ ДЛИНЫ !!!
+        // !!! NEW SERVER-SIDE LENGTH CHECKS !!!
         if (name.length > 10) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Имя пользователя не должно превышать 12 символов.' }) 
+                body: JSON.stringify({ message: 'Username must not exceed 12 characters.' }) // Перевод
             };
         }
 
         if (password.length > 16) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Пароль не должен превышать 16 символов.' }) 
+                body: JSON.stringify({ message: 'Password must not exceed 16 characters.' }) // Перевод
             };
         }
         
-        // --- Настройка доступа к Google Sheets ---
+        // --- Google Sheets Access Setup ---
         if (!PRIVATE_KEY) {
-            return { statusCode: 500, body: JSON.stringify({ message: 'Серверная ошибка конфигурации (Auth).' }) };
+            return { statusCode: 500, body: JSON.stringify({ message: 'Server configuration error (Auth).' }) }; // Перевод
         }
         await doc.useServiceAccountAuth({
             client_email: SERVICE_ACCOUNT_EMAIL,
@@ -65,57 +65,57 @@ exports.handler = async (event) => {
         const sheet = doc.sheetsByIndex[0]; 
         let rows = await sheet.getRows();
 
-        // 2. Проверка уникальности
+        // 2. Uniqueness check
         const userExists = rows.some(row => row.Имя === name || row.Email === email);
         if (userExists) {
             return { 
                 statusCode: 409, 
-                body: JSON.stringify({ message: 'Пользователь с таким именем или email уже существует.' }) 
+                body: JSON.stringify({ message: 'User with this name or email already exists.' }) // Перевод
             };
         }
         
-        // 3. Хэширование пароля
-        const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);       
+        // 3. Password Hashing
+        const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);       
         
-        // 4. ГЕНЕРАЦИЯ УНИКАЛЬНОГО КОДА для нового пользователя
+        // 4. GENERATING A UNIQUE CODE for the new user
         let uniqueReferralCode;
         let codeExists = true;
-        // Генерируем, пока не найдем уникальный код
+        // Generate until a unique code is found
         while(codeExists) {
             uniqueReferralCode = generateUniqueCode();
             codeExists = rows.some(row => row.Уникальный_Код === uniqueReferralCode);
         }
 
-        // 5. Логика начисления однократной скидки Рефереру
+        // 5. Logic for awarding a one-time discount to the Referrer
         let referrerDiscountMessage = "";
         const cleanReferralCode = referralCode ? referralCode.toUpperCase().trim() : '';
 
         if (cleanReferralCode) {
-            // Ищем Реферера по его УНИКАЛЬНОМУ КОДУ (Убедитесь, что столбец назван 'Уникальный_Код')
+            // Find Referrer by their UNIQUE CODE (Ensure the column is named 'Уникальный_Код')
             const referrerRow = rows.find(row => row.Уникальный_Код === cleanReferralCode);
             
             if (referrerRow) {
-                // Преобразуем скидку в число, по умолчанию 0
+                // Convert discount to a number, default is 0
                 let currentDiscount = parseInt(referrerRow.Скидка_Процент) || 0; 
                 
-                // Начисляем 5% только если скидка еще 0%
+                // Award 5% only if the discount is still 0%
                 if (currentDiscount === 0) {
                     referrerRow.Скидка_Процент = DISCOUNT_AMOUNT; 
-                    await referrerRow.save(); // Сохраняем изменение в таблице
+                    await referrerRow.save(); // Save the change to the sheet
                     
-                    referrerDiscountMessage = `Ваш Реферер (${cleanReferralCode}) получил однократную скидку ${DISCOUNT_AMOUNT}%.`;
+                    referrerDiscountMessage = `Your Referrer (${cleanReferralCode}) received a one-time discount of ${DISCOUNT_AMOUNT}%.`; // Перевод
                 } else {
-                    referrerDiscountMessage = `Реферер (${cleanReferralCode}) уже имеет скидку.`;
+                    referrerDiscountMessage = `Referrer (${cleanReferralCode}) already has a discount.`; // Перевод
                 }
             } else {
-                referrerDiscountMessage = `Указанный реферальный код не найден.`;
+                referrerDiscountMessage = `The specified referral code was not found.`; // Перевод
             }
         }
         
-        // 6. Сохранение данных НОВОГО пользователя
+        // 6. Saving NEW user data
         await sheet.loadHeaderRow();
 
-        const formattedDateTime = new Date().toISOString(); // ISO формат (надёжно)
+        const formattedDateTime = new Date().toISOString(); // ISO format (reliable)
 
         await sheet.addRow({
             'Имя': name,
@@ -128,25 +128,25 @@ exports.handler = async (event) => {
         });
 
 
-        // 7. Формирование ответа клиенту
+        // 7. Forming the response to the client
         const successMessage = referrerDiscountMessage 
-            ? `Регистрация успешна! Ваш уникальный код: ${uniqueReferralCode}. ${referrerDiscountMessage}`
-            : `Регистрация успешна! Ваш уникальный код: ${uniqueReferralCode}.`;
+            ? `Registration successful! Your unique code: ${uniqueReferralCode}. ${referrerDiscountMessage}` // Перевод
+            : `Registration successful! Your unique code: ${uniqueReferralCode}.`; // Перевод
 
         return {
             statusCode: 201, 
             body: JSON.stringify({ 
                 message: successMessage, 
                 discount: 0,
-                referralCode: uniqueReferralCode // Возвращаем код новому пользователю
+                referralCode: uniqueReferralCode // Return code to the new user
             }), 
         };
 
     } catch (error) {
-        console.error('Ошибка регистрации:', error);
+        console.error('Registration error:', error); // Перевод
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Внутренняя ошибка сервера. Проверьте логи Netlify.' }),
+            body: JSON.stringify({ message: 'Internal server error. Check Netlify logs.' }), // Перевод
         };
     }
 };
