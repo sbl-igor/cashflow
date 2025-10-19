@@ -31,7 +31,7 @@ exports.handler = async (event) => {
         }
 
         // !!! НОВЫЕ СЕРВЕРНЫЕ ПРОВЕРКИ ДЛИНЫ !!!
-        if (name.length > 12) {
+        if (name.length > 10) {
             return { 
                 statusCode: 400, 
                 body: JSON.stringify({ message: 'Имя пользователя не должно превышать 12 символов.' }) 

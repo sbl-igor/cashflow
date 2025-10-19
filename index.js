@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Пароль';
             document.getElementById('reg-referral-code').placeholder = 'Реферальный код (необязательно)';
             
-
+            document.getElementById('user-greeting').innerHTML = 'Привет, <span id="auth-user-name"></span>!';
+            document.getElementById('referral-info').innerHTML = 'Код: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Скидка: 0%</span>';
+            document.getElementById('btn-logout').textContent = 'Выход';
 
             document.querySelector('.popup-content h3').textContent = 'Выберите язык';
             // nav 
@@ -139,6 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Password';
             document.getElementById('reg-referral-code').placeholder = 'Referral code (optional)';
             
+            document.getElementById('user-greeting').innerHTML = 'Hello, <span id="auth-user-name"></span>!';
+            document.getElementById('referral-info').innerHTML = 'Code: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Discount: 0%</span>';
+            document.getElementById('btn-logout').textContent = 'Log out';
 
 
             document.querySelector('.popup-content h3').textContent = 'Select Language';
@@ -223,6 +228,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Contraseña';
             document.getElementById('reg-referral-code').placeholder = 'Código de referencia (opcional)';
 
+            document.getElementById('user-greeting').innerHTML = 'Hola, <span id="auth-user-name"></span>!';
+            document.getElementById('referral-info').innerHTML = 'Código: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Descuento: 0%</span>';
+            document.getElementById('btn-logout').textContent = 'Finalizar';
+
 
             document.querySelector('.popup-content h3').textContent = 'Seleccionar idioma';
 
@@ -306,6 +315,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Senha';
             document.getElementById('reg-referral-code').placeholder = 'Código de referência (opcional)';
 
+            document.getElementById('user-greeting').innerHTML = 'Olá, <span id="auth-user-name"></span>!';
+            document.getElementById('referral-info').innerHTML = 'Código: <span id="auth-referral-code"></span><br><span id="auth-user-discount">Desconto: 0%</span>';
+            document.getElementById('btn-logout').textContent = 'Terminar';
 
             document.querySelector('.popup-content h3').textContent = 'Selecionar idioma';
 

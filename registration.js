@@ -153,7 +153,7 @@ const handleRegistration = async (event) => {
     }
 
     // !!! НОВЫЕ ПРОВЕРКИ ДЛИНЫ !!!
-    if (name.length > 12) {
+    if (name.length > 10) {
         alert('Имя пользователя не должно превышать 12 символов.');
         return;
     }
@@ -218,7 +218,7 @@ const handleLogin = async (event) => {
     }
 
     // !!! НОВЫЕ ПРОВЕРКИ ДЛИНЫ !!!
-    if (name.length > 12) {
+    if (name.length > 10) {
         alert('Имя пользователя не должно превышать 12 символов.');
         return;
     }
