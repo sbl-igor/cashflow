@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Пароль';
             document.getElementById('reg-referral-code').placeholder = 'Реферальный код (необязательно)';
             
+            document.getElementById('login-name').placeholder = 'Логин';
+            document.getElementById('login-password').placeholder = 'Пароль';
 
             // // Получаем текущие динамические данные (они должны быть в <span>)
             // // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
@@ -159,6 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Password';
             document.getElementById('reg-referral-code').placeholder = 'Referral code (optional)';
 
+            document.getElementById('login-name').placeholder = 'Username';
+            document.getElementById('login-password').placeholder = 'Password';
             // // Получаем текущие динамические данные (они должны быть в <span>)
             // // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
             // const currentName = document.getElementById('auth-user-name').textContent || '';
@@ -262,6 +266,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Contraseña';
             document.getElementById('reg-referral-code').placeholder = 'Código de referencia (opcional)';
 
+            document.getElementById('login-name').placeholder = 'Nombre de usuario';
+            document.getElementById('login-password').placeholder = 'Contraseña';
 
             // // Получаем текущие динамические данные (они должны быть в <span>)
             // // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
@@ -366,6 +372,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reg-password').placeholder = 'Senha';
             document.getElementById('reg-referral-code').placeholder = 'Código de referência (opcional)';
 
+            document.getElementById('login-name').placeholder = 'Nome de usuário';
+            document.getElementById('login-password').placeholder = 'Senha';
             // // Получаем текущие динамические данные (они должны быть в <span>)
             // // Если данные уже там, мы их сохраняем. Если нет — используем пустую строку.
             // const currentName = document.getElementById('auth-user-name').textContent || '';
