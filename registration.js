@@ -147,7 +147,7 @@ const handleRegistration = async (event) => {
 
     // Валидация
     if (!name || !email || !password || password.length < 6) {
-        alert('Please fill in Name, Email, and Password (min 6 characters).') // Перевод
+        alert('Please fill in Username, Email, and Password (min 6 characters).') // Перевод
         return
     }
 
@@ -211,7 +211,7 @@ const handleLogin = async (event) => {
 
     // Валидация
     if (!name || !password) {
-        alert('Please enter your Name and Password.'); // Перевод
+        alert('Please enter your Username and Password.'); // Перевод
         return
     }
 

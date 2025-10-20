@@ -24,7 +24,7 @@ exports.handler = async (event) => {
         if (!name || !password) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Name and Password are required.' }) // Translated
+                body: JSON.stringify({ message: 'Username and Password are required.' }) // Translated
             };
         }
 
@@ -64,7 +64,7 @@ exports.handler = async (event) => {
             // Safe error message: do not reveal if the name exists
             return { 
                 statusCode: 401, 
-                body: JSON.stringify({ message: 'Incorrect name or password.' }) // Translated
+                body: JSON.stringify({ message: 'Incorrect Username or password.' }) // Translated
             };
         }
 
@@ -92,7 +92,7 @@ exports.handler = async (event) => {
             // Password mismatch
             return { 
                 statusCode: 401, 
-                body: JSON.stringify({ message: 'Incorrect name or password.' }) // Translated
+                body: JSON.stringify({ message: 'Incorrect Username or password.' }) // Translated
             };
         }
 

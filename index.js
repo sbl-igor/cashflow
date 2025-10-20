@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#form-registration button').textContent = 'Зарегистрироваться';
             document.querySelector('#popup-login h2').textContent = 'Вход';
             document.querySelector('#form-login button').textContent = 'Войти';
-            document.getElementById('reg-name').placeholder = 'Имя';
+            document.getElementById('reg-name').placeholder = 'Логин';
             document.getElementById('reg-email').placeholder = 'Email';
             document.getElementById('reg-password').placeholder = 'Пароль';
             document.getElementById('reg-referral-code').placeholder = 'Реферальный код (необязательно)';
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#form-registration button').textContent = 'Register';
             document.querySelector('#popup-login h2').textContent = 'Login';
             document.querySelector('#form-login button').textContent = 'Login';
-            document.getElementById('reg-name').placeholder = 'Name';
+            document.getElementById('reg-name').placeholder = 'Username';
             document.getElementById('reg-email').placeholder = 'Email';
             document.getElementById('reg-password').placeholder = 'Password';
             document.getElementById('reg-referral-code').placeholder = 'Referral code (optional)';
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#form-registration button').textContent = 'Registrarse';
             document.querySelector('#popup-login h2').textContent = 'Iniciar sesión';
             document.querySelector('#form-login button').textContent = 'Iniciar sesión';
-            document.getElementById('reg-name').placeholder = 'Nombre';
+            document.getElementById('reg-name').placeholder = 'Nombre de usuario';
             document.getElementById('reg-email').placeholder = 'Correo electrónico';
             document.getElementById('reg-password').placeholder = 'Contraseña';
             document.getElementById('reg-referral-code').placeholder = 'Código de referencia (opcional)';
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('#form-registration button').textContent = 'Cadastre-se';
             document.querySelector('#popup-login h2').textContent = 'Entrar';
             document.querySelector('#form-login button').textContent = 'Entrar';
-            document.getElementById('reg-name').placeholder = 'Nome';
+            document.getElementById('reg-name').placeholder = 'Nome de usuário';
             document.getElementById('reg-email').placeholder = 'E-mail';
             document.getElementById('reg-password').placeholder = 'Senha';
             document.getElementById('reg-referral-code').placeholder = 'Código de referência (opcional)';

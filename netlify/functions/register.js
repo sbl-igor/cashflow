@@ -33,7 +33,7 @@ exports.handler = async (event) => {
         if (!name || !email || !password || password.length < 6) {
             return { 
                 statusCode: 400, 
-                body: JSON.stringify({ message: 'Name, Email, and Password (min 6 characters) are required.' }) // Перевод
+                body: JSON.stringify({ message: 'Username, Email, and Password (min 6 characters) are required.' }) // Перевод
             };
         }
 
@@ -70,7 +70,7 @@ exports.handler = async (event) => {
         if (userExists) {
             return { 
                 statusCode: 409, 
-                body: JSON.stringify({ message: 'User with this name or email already exists.' }) // Перевод
+                body: JSON.stringify({ message: 'User with this username or email already exists.' }) // Перевод
             };
         }
         
